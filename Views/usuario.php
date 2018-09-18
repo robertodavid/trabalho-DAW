@@ -20,6 +20,7 @@
         <th>USERNAME</th>
         <th>PASSWORD</th>
         <th>LVLACESSO</th>
+        <th>AÇÕES</th>
     </tr>
     <?php foreach ($usuarios as $usuario): ?>
         <tr>
@@ -28,6 +29,11 @@
             <td><?php echo $usuario['username']; ?></td>
             <td><?php echo $usuario['password']; ?></td>
             <td><?php echo $usuario['lvlacesso']; ?></td>
+            <td>
+                <a href="<?php echo $usuario['id_user']; ?>">[EDITAR]</a>
+                <a href="<?php echo $usuario['id_user']; ?>">[APAGAR]</a>
+
+            </td>
         </tr>
     <?php endforeach; ?>
 

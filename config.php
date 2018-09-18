@@ -4,7 +4,7 @@ require 'environment.php';
 $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://odonto2.pc/");
-	$config['dbname'] = '';
+	$config['dbname'] = 'odonto';
 	$config['host'] = '127.0.0.1';
 	$config['dbuser'] = 'root';
 	$config['dbpass'] = '';
