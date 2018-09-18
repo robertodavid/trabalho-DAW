@@ -40,7 +40,7 @@ class UsuarioController extends Controller
             $password = md5(addslashes($_POST['password']));
             $lvlacesso = addslashes($_POST[lvlacesso]);
 
-            $u->setNome($nome);
+            $u->
             $u->setUsername($username);
             $u->setPassword($password);
             $u->setLvlAcesso($lvlacesso);
