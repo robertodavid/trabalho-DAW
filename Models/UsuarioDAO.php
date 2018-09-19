@@ -92,12 +92,12 @@ class UsuarioDAO extends Model
     public function listar()
     {
         try{
-            $dados = array();
+
             $sql = "SELECT * FROM usuarios";
             $sql = $this->pdo->query($sql);
 
             if($sql->rowCount() > 0){
-                $array = $sql->fetchAll();
+                $dados = $sql->fetchAll();
                 return $dados;
             }else{
                 echo("Erro na consulta");

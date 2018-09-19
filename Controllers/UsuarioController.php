@@ -18,9 +18,9 @@ class UsuarioController extends Controller
             'usuarios' => ''
         );
 
-        $u = new UsuarioDAO();
+        $ud = new UsuarioDAO();
 
-        $dados['usuarios'] = $u->listar();
+        $dados['usuarios'] = $ud->listar();
 
 
         $this->loadTemplate('usuario', $dados);

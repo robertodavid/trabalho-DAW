@@ -5,8 +5,14 @@
  * Date: 16/09/2018
  * Time: 23:13
  */
+//$usuariosDao = new \Models\UsuarioDAO();
+//$usuarios = $usuariosDao->listar();
+echo "<pre>";
+var_dump($usuarios);
+echo "</pre>";
 
 
+echo BASE_URL;
 ?>
 
 <h1>Página Usuário</h1>
@@ -24,14 +30,14 @@
     </tr>
     <?php foreach ($usuarios as $usuario): ?>
         <tr>
-            <td><?php echo $usuario['id_user']; ?></td>
-            <td><?php echo $usuario['nome']; ?></td>
-            <td><?php echo $usuario['username']; ?></td>
-            <td><?php echo $usuario['password']; ?></td>
-            <td><?php echo $usuario['lvlacesso']; ?></td>
+            <td><?php echo $usuario->id_user; ?></td>
+            <td><?php echo $usuario->nome; ?></td>
+            <td><?php echo $usuario->username; ?></td>
+            <td><?php echo $usuario->password; ?></td>
+            <td><?php echo $usuario->lvlacesso; ?></td>
             <td>
-                <a href="<?php echo $usuario['id_user']; ?>">[EDITAR]</a>
-                <a href="<?php echo $usuario['id_user']; ?>">[APAGAR]</a>
+                <a href="<?php echo $usuario->id_user; ?>">[EDITAR]</a>
+                <a href="<?php echo $usuario->id_user; ?>">[APAGAR]</a>
 
             </td>
         </tr>
