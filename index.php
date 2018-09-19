@@ -1,6 +1,7 @@
 <?php
 session_start();
-require 'config.php';
+
+define("BASE_URL", "http://odonto2.pc/");
 
 require 'vendor/autoload.php';
 
