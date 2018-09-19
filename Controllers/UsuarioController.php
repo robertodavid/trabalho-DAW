@@ -49,10 +49,8 @@ class UsuarioController extends Controller
             if(!$ud->usernameExiste($u)){
 
 
-                $retorno = $ud->inserir($u);
+                $dados['aviso'] = $ud->inserir($u);
 
-                echo $retorno;
-                die;
             }else{
                 $dados['aviso'] = "Usuário já consta no sistema";
             }

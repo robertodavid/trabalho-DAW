@@ -15,24 +15,24 @@
         <br><br>
         <form method="post" class="text-center col-lg-offset-3 col-lg-6">
             <div class="form-group text-left">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control login-adm" id="nome" name="nome">
+                <label for="nome">Nome:</label><br>
+                <input type="text" class="form-control login-adm" id="nome" name="nome"><br><br>
             </div>
             <div class="form-group text-left">
-                <label for="usuario">Usuário:</label>
-                <input type="text" class="form-control login-adm" id="usuario" name="username">
+                <label for="usuario">Usuário:</label><br>
+                <input type="text" class="form-control login-adm" id="usuario" name="username"><br><br>
             </div>
             <div class="form-group text-left">
-                <label for="pwd">Senha:</label>
-                <input type="password" class="form-control login-adm" id="pwd" name="password">
+                <label for="pwd">Senha:</label><br>
+                <input type="password" class="form-control login-adm" id="pwd" name="password"><br><br>
             </div>
             <div class="form-group text-left">
-                <label for="pwd">Nível de Acesso:</label>
-                <select id="lvlacesso" name="lvlacesso">
+                <label for="pwd">Nível de Acesso:</label><br>
+                <select id="lvlacesso" name="lvlacesso"><br><br>
                     <option value="0">Básico</option>
                     <option value="1">Administrador</option>
 
-                </select>
+                </select><br><br>
             </div>
 
             <button type="submit" class="btn-lg btn-login-adm">Cadastrar</button>

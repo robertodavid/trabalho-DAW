@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: RPDavid
- * Date: 16/09/2018
- * Time: 23:13
- */
-//$usuariosDao = new \Models\UsuarioDAO();
-//$usuarios = $usuariosDao->listar();
+
 echo "<pre>";
 var_dump($usuarios);
 echo "</pre>";
