@@ -29,7 +29,7 @@ echo BASE_URL;
             <td><?php echo $usuario->password; ?></td>
             <td><?php echo $usuario->lvlacesso; ?></td>
             <td>
-                <a href="<?php echo $usuario->id_user; ?>">[EDITAR]</a>
+                <a href="<?php echo "editUsuario/?id=".$usuario->id_user; ?>">[EDITAR]</a>
                 <a href="<?php echo $usuario->id_user; ?>">[APAGAR]</a>
 
             </td>

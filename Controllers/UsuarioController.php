@@ -64,7 +64,7 @@ class UsuarioController extends Controller
         $this->loadTemplate('cadusuario', $dados);
     }
 
-    public function editUsuario() {
+    public function editUsuario($id) {
         $dados = array(
             'aviso' => '',
             'usuario' =>''
