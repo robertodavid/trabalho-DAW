@@ -18,7 +18,14 @@ footer {
 
 .aviso {
 	padding:10px;
-	background-color:#FF0000;
+	background-color:#F88C87;
 	border:2px solid #FFFFFF;
 	margin:10px;
+}
+.paletaCores{
+	background-color: #2e76a4;
+	background-color: #6EC0F5;
+	background-color: #BCDCAE;
+	background-color: #F88C87;
+	background-color: #FFFFFF;
 }
