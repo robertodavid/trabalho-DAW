@@ -1,32 +1,42 @@
-<html>
-	<head>
-		<title>Meu site</title>
-		<link rel="stylesheet" type="text/css" href="<?php echo BASE_URL; ?>assets/css/style.css" />
-		<script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/vue.js"></script>
-	</head>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+        <title>Sistema de clínica dentária</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link type="text/css" href="<?php echo BASE_URL; ?>assets/css/style.css" rel="stylesheet"/>
+        <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/vue.js"></script>
+    </head>
 	<body>
     <div id="app">
-		<header>
-            <nav v-bind:class="active" v-on:click.prevent>
-                <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
-                <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>
-                <a href="#" class="services" v-on:click="makeActive('services')">Services</a>
-                <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>
-            </nav>
-                <p>You chose <b>{{ active }}</b></p>
-			<h1>Topo do site</h1>
-            <h2>{{ msg }}</h2>
-		</header>
-		<section>
-			<?php $this->loadViewInTemplate($viewName, $viewData); ?>
-		</section>
-		<footer>
-            <br>
-            <hr>
-            <br>
-			Todos os direitos reservados
-		</footer>
-        <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
+        <div class="container">
+            <header>
+                <nav v-bind:class="active" v-on:click.prevent>
+
+                    <!-- When a link in the menu is clicked, we call the makeActive method,
+                    defined in the JavaScript Vue instance. It will change the value of "active". -->
+
+                    <a href="#" class="painel" v-on:click="makeActive('painel')">painel</a>
+                    <a href="#" class="pacientes" v-on:click="makeActive('pacientes')">pacientes</a>
+                    <a href="#" class="medicos" v-on:click="makeActive('medicos')">médicos</a>
+                    <a href="#" class="convenios" v-on:click="makeActive('convenios')">convênios</a>
+                    <a href="#" class="consultas" v-on:click="makeActive('consultas')">consultas</a>
+                </nav>
+            </header>
+
+
+            <?php $this->loadViewInTemplate($viewName, $viewData); ?>
+
+
+
+            <footer>
+                <br>
+                <hr>
+                <br>
+                Todos os direitos reservados
+            </footer>
+        </div>
     </div>
+    <script type="text/javascript" src="<?php echo BASE_URL; ?>assets/js/script.js"></script>
     </body>
 </html>

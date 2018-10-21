@@ -1,8 +1,8 @@
 let app = new Vue({
     el: '#app',
     data: {
-        msg: 'Olá Vue!',
-        active: 'home'
+        msg: 'teste VueJs',
+        active: 'painel'
     },
     methods: {
         makeActive: function(item){
