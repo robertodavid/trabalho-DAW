@@ -11,6 +11,8 @@
     <div id="app">
         <div class="container">
             <header>
+                <div class="logo">
+                </div>
                 <nav v-bind:class="active" v-on:click.prevent>
 
                     <!-- When a link in the menu is clicked, we call the makeActive method,

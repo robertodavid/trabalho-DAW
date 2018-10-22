@@ -9,11 +9,30 @@
 namespace Controllers;
 
 use \Core\Controller;
+use Models\ConvenioDAO;
+use Models\MedicoDAO;
+use Models\PacienteDAO;
 
 class HomeController extends Controller {
 
 	public function index() {
-		$dados = array();
+		$dados = array(
+		    'pacientes' => '',
+            'medicos' => '',
+            'convenios' => '',
+            'consultas' => ''
+        );
+        $paciD = new PacienteDAO();
+
+        $dados['pacientes'] = $paciD->contar();
+
+        $medicD = new MedicoDAO();
+
+        $dados['medicos'] = $medicD->contar();
+
+        $convD = new ConvenioDAO();
+
+        $dados['convenios'] = $convD->contar();
 
 
 		$this->loadTemplate('home', $dados);

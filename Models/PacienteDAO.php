@@ -23,6 +23,25 @@ class PacienteDAO extends Model
         }
     }
 
+    public function contar()
+    {
+        try{
+
+            $sql = "SELECT COUNT(id_paciente) AS nPaci FROM pacientes ";
+            $sql = $this->pdo->query($sql);
+
+            if($sql->rowCount() > 0){
+                $dados = $sql->fetch();
+                return $dados;
+            }else{
+                echo("Erro na consulta");
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
     public function listar()
     {
         try{
@@ -41,6 +60,7 @@ class PacienteDAO extends Model
             print $e->getMessage();
         }
     }
+
 
 
 
