@@ -1,6 +1,11 @@
 //------->>>>imports<<<<------
 
-@import  'C:/Users/RPDavid/AppData/Roaming/npm/node_modules/jeet/jeet'
+//@import  'C:/Users/RPDavid/AppData/Roaming/npm/node_modules/jeet/jeet'
+@import '/opt/lampp/htdocs/front/stylus/node_modules/jeet/jeet'
+@import '/opt/lampp/htdocs/front/stylus/node_modules/nib/'
+
+
+global-reset()
 
 
 //------->>>>color<<<<------
@@ -54,6 +59,9 @@ body
   color preto
   text-align center
 
+html
+  overflow-y  scroll
+
 section, footer, header, aside, nav
   display block
 
@@ -76,9 +84,7 @@ a:hover
   background-image url("../images/logo.png")
   background-size cover
 
-/*-------------------------
-    The menu
---------------------------*/
+//------->>>>Menu<<<<--------
 
 nav
   display inline-block
@@ -109,7 +115,7 @@ nav
   a:last-child
     border-radius:0 2px 2px 0
 
-nav.painel .painel,
+nav.home .home,
 nav.pacientes .pacientes,
 nav.medicos .medicos,
 nav.convenios .convenios

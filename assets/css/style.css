@@ -1,3 +1,94 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+ol,
+ul {
+  list-style: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+a img {
+  border: none;
+}
 rupture.scale-names: 'xs''s''m''l',
 .padding-xs {
   padding: 5px;
@@ -19,6 +110,9 @@ body {
   font: 15px/1.3 'Open Sans', sans-serif;
   color: #000;
   text-align: center;
+}
+html {
+  overflow-y: scroll;
 }
 section,
 footer,
@@ -44,15 +138,15 @@ a:hover {
   width: 200px;
   height: 76px;
   background-image: url("../images/logo.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-size: cover;
 }
-/*-------------------------
-    The menu
---------------------------*/
 nav {
   display: inline-block;
   margin: auto;
   background-color: #078196;
+  -webkit-box-shadow: 0 1px 1px #d8d5d5;
   box-shadow: 0 1px 1px #d8d5d5;
   border-radius: 2px;
 }
@@ -68,6 +162,10 @@ nav a {
   background-color: transparent;
   -webkit-transition: background-color 0.25s;
   -moz-transition: background-color 0.25s;
+  -webkit-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  -o-transition: background-color 0.25s;
+  -ms-transition: background-color 0.25s;
   transition: background-color 0.25s;
 }
 nav a:first-child {
@@ -76,7 +174,7 @@ nav a:first-child {
 nav a:last-child {
   border-radius: 0 2px 2px 0;
 }
-nav.painel .painel,
+nav.home .home,
 nav.pacientes .pacientes,
 nav.medicos .medicos,
 nav.convenios .convenios,

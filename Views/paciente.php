@@ -1,3 +1,5 @@
+
+    {{ makeActive('pacientes') }}
 <?php
 /**
  * Created by PhpStorm.

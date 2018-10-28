@@ -13,16 +13,16 @@
             <header>
                 <div class="logo">
                 </div>
-                <nav v-bind:class="active" v-on:click.prevent>
+                <nav v-bind:class="active" v-on:click>
 
                     <!-- When a link in the menu is clicked, we call the makeActive method,
                     defined in the JavaScript Vue instance. It will change the value of "active". -->
 
-                    <a href="#" class="painel" v-on:click="makeActive('painel')">painel</a>
-                    <a href="#" class="pacientes" v-on:click="makeActive('pacientes')">pacientes</a>
-                    <a href="#" class="medicos" v-on:click="makeActive('medicos')">médicos</a>
-                    <a href="#" class="convenios" v-on:click="makeActive('convenios')">convênios</a>
-                    <a href="#" class="consultas" v-on:click="makeActive('consultas')">consultas</a>
+                    <a href="<?php echo BASE_URL?>" class="home" v-on:click="makeActive('home')">home</a>
+                    <a href="<?php echo BASE_URL;?>paciente" class="pacientes" v-on:click="makeActive('pacientes')">pacientes</a>
+                    <a href="<?php echo BASE_URL;?>medico" class="medicos" v-on:click="makeActive('medicos')">médicos</a>
+                    <a href="<?php echo BASE_URL;?>convenio" class="convenios" v-on:click="makeActive('convenios')">convênios</a>
+                    <a href="<?php echo BASE_URL?>" class="consultas" v-on:click="makeActive('consultas')">consultas</a>
                 </nav>
             </header>
 

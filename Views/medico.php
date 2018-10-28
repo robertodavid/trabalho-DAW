@@ -12,3 +12,4 @@ echo "</pre>";
 
 echo BASE_URL;
 ?>
+{{ makeActive('medicos') }}

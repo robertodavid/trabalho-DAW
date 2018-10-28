@@ -27,7 +27,7 @@ class MedicoDAO extends Model
     {
         try{
 
-            $sql = "SELECT COUNT(id_medic) AS nMed FROM medicos ";
+            $sql = "SELECT COUNT(*) AS nMed FROM medicos ";
             $sql = $this->pdo->query($sql);
 
             if($sql->rowCount() > 0){

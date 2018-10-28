@@ -27,7 +27,7 @@ class PacienteDAO extends Model
     {
         try{
 
-            $sql = "SELECT COUNT(id_paciente) AS nPaci FROM pacientes ";
+            $sql = "SELECT COUNT(*) AS nPaci FROM pacientes ";
             $sql = $this->pdo->query($sql);
 
             if($sql->rowCount() > 0){

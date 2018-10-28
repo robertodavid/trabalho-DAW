@@ -27,7 +27,7 @@ class ConvenioDAO extends Model
     {
         try{
 
-            $sql = "SELECT COUNT(id_conv) AS nConv FROM convenios ";
+            $sql = "SELECT COUNT(*) AS nConv FROM convenios ";
             $sql = $this->pdo->query($sql);
 
             if($sql->rowCount() > 0){
