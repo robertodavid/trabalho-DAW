@@ -13,4 +13,7 @@ echo "</pre>";
 
 echo BASE_URL;
 ?>
+<section id="convenio">
 {{ makeActive('convenios') }}
+
+</section>

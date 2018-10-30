@@ -14,7 +14,7 @@
 ?>
 
 
-<section class="pg-home">
+<section id="home" class="pg-home">
     {{ makeActive('home') }}
     <h2>Informações do sistema</h2>
 

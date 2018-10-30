@@ -10,7 +10,7 @@
 	<body>
     <div id="app">
         <div class="container">
-            <header>
+            <header id="header">
                 <div class="logo">
                 </div>
                 <nav v-bind:class="active" v-on:click>
@@ -31,7 +31,7 @@
 
 
 
-            <footer>
+            <footer id="footer">
                 <br>
                 <hr>
                 <br>

@@ -101,7 +101,7 @@ class Paciente extends Model
         $this->whats = $whats;
     }
 
-    public function getIdConv()
+    public function getId_conv()
     {
         return $this->id_conv;
     }
@@ -110,8 +110,5 @@ class Paciente extends Model
     {
         $this->id_conv = $id_conv;
     }
-
-
-
 
 }

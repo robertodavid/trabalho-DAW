@@ -15,3 +15,5 @@ echo "</pre>";
 
 echo BASE_URL;
 ?>
+<section id="paciente">
+</section>

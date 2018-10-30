@@ -12,4 +12,7 @@ echo "</pre>";
 
 echo BASE_URL;
 ?>
-{{ makeActive('medicos') }}
+<section id="medico">
+  {{ makeActive('medicos') }}
+
+</section>
