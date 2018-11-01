@@ -69,7 +69,7 @@ class UsuarioDAO extends Model
     public function inserir(Usuario $usuario)
     {
         try{
-            $sql = "INSERT INTO usuarios (nome, username, password, lvlacesso) 
+            $sql = "INSERT INTO usuarios (nome, username, password, lvlacesso)
                                   VALUES (:nome, :username, :password, :lvlacesso)";
             $sql = $this->pdo->prepare($sql);
 
@@ -164,7 +164,7 @@ class UsuarioDAO extends Model
     public function updateSenha(Usuario $usuario)
     {
         try{
-            $sql = "UPDATE usuarios SET password = :password 
+            $sql = "UPDATE usuarios SET password = :password
                     WHERE id_user = :id_user";
             $sql = $this->pdo->prepare($sql);
 

@@ -13,6 +13,6 @@ echo "</pre>";
 echo BASE_URL;
 ?>
 <section id="medico">
-  {{ makeActive('medicos') }}
+  {{ ativar('medicos') }}
 
 </section>

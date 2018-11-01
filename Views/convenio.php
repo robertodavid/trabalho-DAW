@@ -14,6 +14,6 @@ echo "</pre>";
 echo BASE_URL;
 ?>
 <section id="convenio">
-{{ makeActive('convenios') }}
+{{ ativar('convenios') }}
 
 </section>

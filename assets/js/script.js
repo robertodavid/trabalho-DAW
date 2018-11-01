@@ -1,3 +1,5 @@
+
+
 let header = new Vue({
   el: '#header',
   data: {
@@ -11,23 +13,26 @@ let header = new Vue({
   }
 })
 
-let paciente = new Vue({
+let footer = new Vue({
   el: '#footer',
   data:{
 
-  }
+  },
   methods:{
 
   }
 })
 
-let paciente = new Vue({
+let home = new Vue({
   el: '#home',
   data:{
 
-  }
+  },
   methods:{
+    ativar: function(item){
+        header.makeActive(item);
 
+    }
   }
 })
 
@@ -35,28 +40,37 @@ let paciente = new Vue({
   el: '#paciente',
   data:{
 
-  }
+  },
   methods:{
+      ativar: function(item){
+          header.makeActive(item);
 
+      }
   }
 })
 
-let paciente = new Vue({
+let medico = new Vue({
   el: '#medico',
   data:{
 
-  }
+  },
   methods:{
+      ativar: function(item){
+          header.makeActive(item);
 
+      }
   }
 })
 
-let paciente = new Vue({
+let convenio = new Vue({
   el: '#convenio',
   data:{
 
-  }
+  },
   methods:{
+      ativar: function(item){
+          header.makeActive(item);
 
+      }
   }
 })
