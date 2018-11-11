@@ -1,2 +1,2 @@
 # trabalho-DAW
-stylus -u rupture -w style.styl -o style.css
+stylus -u rupture -u jeet -w main.styl -o ../css
