@@ -82,6 +82,27 @@ class PacienteDAO extends Model
         }
     }
 
+    public function nomeExiste(Paciente $paciente)
+    {
+        try{
+            $sql = "SELECT * FROM pacientes WHERE nome = :nome";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':id_paciente', $paciente->getNome());
+
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+                return true;
+            }else{
+                return false;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
     public function inserir(Paciente $paciente)
     {
         try{

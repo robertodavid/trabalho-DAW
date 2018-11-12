@@ -10,6 +10,7 @@ namespace Controllers;
 
 
 use Core\Controller;
+use Models\Paciente;
 use Models\PacienteDAO;
 
 class PacienteController extends Controller
@@ -20,7 +21,7 @@ class PacienteController extends Controller
             'pacientes' => ''
         );
 
-        $this->loadTemplate('paciente', $dados);
+        $this->loadTemplate('pacientes', $dados);
     }
 
     public function listar()
@@ -37,54 +38,147 @@ class PacienteController extends Controller
         $this->loadTemplate('p_list', $dados);
     }
 
-//    public function addUsuario() {
-//        $dados = array(
-//            'aviso' => ''
-//        );
-//
-//        $pd = new PacienteDAO();
-//        $p = new Paciente();
-//
-//        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['dt_nasc']) && !empty($_POST['dt_nasc']) && isset($_POST['cpf']) && !empty($_POST['cpf'])){
-//            $nome = addslashes($_POST['nome']);
-//            $dt_nasc = addslashes($_POST['dt_nasc']);
-//            $nacion = md5(addslashes($_POST['nacion']));
-//            $est_civil = addslashes($_POST['est_civil']);
-//            $cpf = addslashes($_POST['cpf']);
-//            $ci = addslashes($_POST['ci']);
-//            $whats = addslashes($_POST['whats']);
-//            $id_conv = addslashes($_POST['id_conv']);
-//
-//
-//
-//            $p->setNome($nome);
-//            $p->setDt_nasc($dt_nasc);
-//            $p->setNacion($nacion);
-//            $p->setEst_civil($est_civil);
-//            $p->setCpf($cpf);
-//            $p->setCi($ci);
-//            $p->setWhats($whats);
-//            $p->setId_conv($id_conv);
-//
-//
-//
-//
-//            if(!$pd->nomeExiste($p)){
-//
-//
-//                $dados['aviso'] = $ud->inserir($u);
-//
-//            }else{
-//                $dados['aviso'] = "Usuário já consta no sistema";
-//            }
-//
-//
-//        }
-//
-//        $dados['aviso'] ="";
-//
-//
-//        $this->loadTemplate('cadusuario', $dados);
-//    }
+    public function addPaciente() {
+        $dados = array(
+            'aviso' => ''
+        );
+
+        $pd = new PacienteDAO();
+        $p = new Paciente();
+
+        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['dt_nasc']) && !empty($_POST['dt_nasc']) && isset($_POST['cpf']) && !empty($_POST['cpf'])){
+            $nome = addslashes($_POST['nome']);
+            $dt_nasc = addslashes($_POST['dt_nasc']);
+            $nacion = md5(addslashes($_POST['nacion']));
+            $est_civil = addslashes($_POST['est_civil']);
+            $cpf = addslashes($_POST['cpf']);
+            $ci = addslashes($_POST['ci']);
+            $whats = addslashes($_POST['whats']);
+            $id_conv = addslashes($_POST['id_conv']);
+
+
+
+            $p->setNome($nome);
+            $p->setDt_nasc($dt_nasc);
+            $p->setNacion($nacion);
+            $p->setEst_civil($est_civil);
+            $p->setCpf($cpf);
+            $p->setCi($ci);
+            $p->setWhats($whats);
+            $p->setId_conv($id_conv);
+
+
+
+
+            if(!$pd->nomeExiste($p)){
+
+
+                $dados['aviso'] = $pd->inserir($p);
+
+            }else{
+                $dados['aviso'] = "Paciente já consta no sistema";
+            }
+
+
+        }
+
+        $dados['aviso'] ="";
+
+
+        $this->loadTemplate('cadPaciente', $dados);
+    }
+
+    public function exibir($id_paciente){
+        $dados = array(
+            'aviso' => '',
+            'paciente' => ''
+        );
+
+        $pd = new PacienteDAO();
+        $p = new Paciente();
+
+
+        if(isset($id_paciente) && !empty($id_paciente)){
+            $p->setId_paciente($id_paciente);
+
+            if(!$pd->idExiste($p)){
+
+
+                $dados['paciente'] = $pd->getPaciente($p);
+
+            }else{
+                $dados['aviso'] = "Paciente já consta no sistema";
+            }
+        }
+
+        $this->loadTemplate('paciente', $dados);
+
+    }
+
+    public function editPaciente() {
+        $dados = array(
+            'aviso' => '',
+            'paciente' =>''
+        );
+
+        $pd = new PacienteDAO();
+        $p = new Paciente();
+
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $id_paciente = addslashes($_GET['id']);
+            $p->setId_paciente($id_paciente);
+
+            if($pd->idExiste($p)){
+                $dados['paciente'] = $pd->getPaciente($p);
+
+                $this->loadTemplate('editPaciente', $dados);
+
+            }else{
+                $dados['aviso']= "Paciente não encontrado";
+            }
+        }
+
+        if(isset($_POST['id_paciente']) && !empty($_POST['id_paciente']) && isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['dt_nasc']) && !empty($_POST['dt_nasc']) && isset($_POST['cpf']) && !empty($_POST['cpf'])){
+            $id_paciente = addslashes($_POST['id_paciente']);
+            $nome = addslashes($_POST['nome']);
+            $dt_nasc = addslashes($_POST['dt_nasc']);
+            $nacion = md5(addslashes($_POST['nacion']));
+            $est_civil = addslashes($_POST['est_civil']);
+            $cpf = addslashes($_POST['cpf']);
+            $ci = addslashes($_POST['ci']);
+            $whats = addslashes($_POST['whats']);
+            $id_conv = addslashes($_POST['id_conv']);
+
+
+            $p->setId_paciente($id_paciente);
+            $p->setNome($nome);
+            $p->setDt_nasc($dt_nasc);
+            $p->setNacion($nacion);
+            $p->setEst_civil($est_civil);
+            $p->setCpf($cpf);
+            $p->setCi($ci);
+            $p->setWhats($whats);
+            $p->setId_conv($id_conv);
+
+
+
+
+            if(!$pd->idExiste($p)){
+
+
+                $dados['aviso'] = "Paciente Inválido!";
+
+            }else{
+                $dados['aviso'] = $pd->update($p);
+            }
+
+
+        }
+
+        $dados['aviso'] ="";
+
+
+        $this->loadTemplate('paciente', $dados);
+    }
 
 }

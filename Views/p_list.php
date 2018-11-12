@@ -20,6 +20,7 @@
                     <th>NOME</th>
                     <th>CPF</th>
                     <th>WHATSAPP</th>
+                    <th>Ação</th>
                 </tr>
                 <?php foreach ($pacientes as $paciente): ?>
                     <tr>
@@ -27,7 +28,7 @@
                         <td><?php echo $paciente->cpf; ?></td>
                         <td><?php echo $paciente->whats; ?></td>
                         <td>
-                            <a href="<?php echo "editpaciente/?id=".$paciente->id_paciente; ?>"><button class="btn pad-xs">Editar</button></a>
+                            <a href="<?php echo BASE_URL."paciente/editPaciente/?id=".$paciente->id_paciente; ?>"><button class="btn pad-xs">Editar</button></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

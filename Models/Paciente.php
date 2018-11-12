@@ -26,12 +26,12 @@ class Paciente extends Model
         return $this->id_paciente;
     }
 
-    public function setId_medic($id_paciente)
+    public function setId_paciente($id_paciente)
     {
         $this->id_paciente = $id_paciente;
     }
 
-    public function getName()
+    public function getNome()
     {
         return $this->nome;
     }
