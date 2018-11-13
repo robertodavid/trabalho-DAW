@@ -61,7 +61,125 @@ class ConvenioDAO extends Model
         }
     }
 
+    public function idExiste(Convenio $convenio)
+    {
+        try{
+            $sql = "SELECT * FROM convenios WHERE id_conv = :id_conv";
+            $sql = $this->pdo->prepare($sql);
 
+            $sql->bindValue(':id_conv', $convenio->getId_conv());
+
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+                return true;
+            }else{
+                return false;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
+    public function empresaExiste(Convenio $convenio)
+    {
+        try{
+            $sql = "SELECT * FROM convenios WHERE empresa = :empresa";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':empresa', $convenio->getEmpresa());
+
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+                return true;
+            }else{
+                return false;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
+    public function inserir(Convenio $convenio)
+    {
+        try{
+            $sql = "INSERT INTO convenios (empresa, ativo) VALUES (:empresa, :ativo)";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':empresa', $convenio->getEmpresa());
+            $sql->bindValue(':ativo', $convenio->getAtivo());
+
+            if($sql->execute()){
+                return "Convenio inserido com sucesso.";
+            }else{
+                return "Erro na inserção do Convenio";
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
+    public function getConvenio(Convenio $convenio)
+    {
+        try{
+            $dados = array(
+                'convenio' => '',
+                'msg' => ''
+            );
+            $sql = "SELECT * FROM convenio WHERE id_conv = :id_conv";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':id_conv', $convenio->getId_conv());
+
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                $ret = $sql->fetch();
+
+                $dados['convenio'] = $ret;
+
+                return $dados;
+            }else{
+                $dados['msg'] = "Convenio não encontrado";
+
+                return $dados;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
+    public function update(Convenio $convenio)
+    {
+        try{
+            $dados = array(
+                'msg' => ''
+            );
+
+            $sql = "UPDATE convenio SET empresa = :empresa, ativo = :ativo WHERE id_conv = :id_conv";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':empresa', $convenio->getEmpresa());
+            $sql->bindValue(':ativo', $convenio->getAtivo());
+
+            if($sql->execute()){
+
+                $dados['msg'] = "Convenio Atualizado com sucesso";
+                return $dados;
+            }else{
+
+                $dados['msg'] = "Erro na Atualização do Convenio";
+                return $dados;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
 
 
 
