@@ -5,25 +5,17 @@
  * Date: 16/09/2018
  * Time: 22:05
  */
-//echo "<pre>";
-//var_dump($pacientes);
-//var_dump($medicos);
-//var_dump($convenios);
-//echo "</pre>";
-
 ?>
-
 
 <section id="home" class="pg-home">
     {{ ativar('home') }}
-    <h2>Informações do sistema</h2>
 
-    <br><br>
+    <h2>Informações do sistema</h2>
     <div class="dados">
         <ul class="list-system">
             <li class="list-group-item">
                 <i class="fas fa-user"></i></i>
-                 <span class="padding-m">Pacientes</span>
+                <span class="padding-m">Pacientes</span>
                 <span class="result"><?php echo $pacientes->nPaci ;?></span>
             </li>
             <li class="list-group-item">
@@ -39,7 +31,7 @@
             <li class="list-group-item">
                 <i class="far fa-calendar-plus"></i>
                 <samp class="padding-m">Consultas</samp>
-                <span class="result">10</span>
+                <span class="result">38</span>
             </li>
         </ul>
     </div>
