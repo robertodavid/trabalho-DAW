@@ -134,8 +134,7 @@ class PacienteDAO extends Model
     {
         try{
             $dados = array(
-                'paciente' => '',
-                'msg' => ''
+                'paciente' => ''
             );
             $sql = "SELECT * FROM pacientes WHERE id_paciente = :id_paciente";
             $sql = $this->pdo->prepare($sql);
@@ -150,9 +149,7 @@ class PacienteDAO extends Model
 
                 return $dados;
             }else{
-              $dados['msg'] = "Paciente não encontrado";
-
-              return $dados;
+              return false;
             }
 
         }catch (\PDOException $e){
