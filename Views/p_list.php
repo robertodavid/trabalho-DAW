@@ -7,7 +7,6 @@
  * Date: 15/10/18
  * Time: 15:15
  */
-var_dump($paciente);
 ?>
 <section class="paciente" id="paciente">
         {{ ativar('paciente') }}

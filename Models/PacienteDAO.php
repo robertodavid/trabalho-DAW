@@ -20,7 +20,7 @@ class PacienteDAO extends Model
             parent:: __construct();
         }catch (\PDOException $e){
             print $e->getMessage();
-        }
+    }
     }
 
     public function contar()
