@@ -14,6 +14,9 @@ class Medico extends Model
 {
     private $id_medic;
     private $nome;
+    private $dt_nasc;
+    private $cro;
+    private $whats;
 
     public function getId_medic()
     {
@@ -33,6 +36,36 @@ class Medico extends Model
     public function setNome($nome)
     {
         $this->nome = $nome;
+    }
+
+    public function getDt_nasc()
+    {
+        return $this->dt_nasc;
+    }
+
+    public function setDt_nasc($dt_nasc)
+    {
+        $this->dt_nasc = $dt_nasc;
+    }
+
+    public function getCro()
+    {
+        return $this->cro;
+    }
+
+    public function setCro($cro)
+    {
+        $this->cro = $cro;
+    }
+
+    public function getWhats()
+    {
+        return $this->whats;
+    }
+
+    public function setWhats($whats)
+    {
+        $this->whats = $whats;
     }
 
 

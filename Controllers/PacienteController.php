@@ -10,6 +10,8 @@ namespace Controllers;
 
 
 use Core\Controller;
+use Models\Convenio;
+use Models\ConvenioDAO;
 use Models\Paciente;
 use Models\PacienteDAO;
 
@@ -118,11 +120,14 @@ class PacienteController extends Controller
     public function editPaciente() {
         $dados = array(
             'aviso' => '',
-            'paciente' =>''
+            'paciente' =>'',
+            'convenios' => ''
         );
 
         $pd = new PacienteDAO();
         $p = new Paciente();
+        $c = new Convenio();
+        $cd = new ConvenioDAO();
 
         if(isset($_GET['id']) && !empty($_GET['id'])){
             $id_paciente = addslashes($_GET['id']);
@@ -130,7 +135,7 @@ class PacienteController extends Controller
 
             if($pd->idExiste($p)){
                 $dados['paciente'] = $pd->getPaciente($p);
-
+                $dados['convenios'] = $cd->listar();
                 $this->loadTemplate('editPaciente', $dados);
 
             }else{

@@ -20,13 +20,30 @@ class MedicoController extends Controller
             'medicos' => ''
         );
 
+
+        $this->loadTemplate('medicos', $dados);
+    }
+
+    public function listar(){
+        $dados = array(
+            'medicos'=>''
+        );
         $medicD = new MedicoDAO();
 
         $dados['medicos'] = $medicD->listar();
 
 
-        $this->loadTemplate('medico', $dados);
+        $this->loadTemplate('m_lista', $dados);
+
     }
 
+    public function add(){
+        $dados = array(
+            'medidos' => '',
+            'msg' => ''
+        );
+
+        $this->loadTemplate('add_medico', $dados);
+    }
 
 }

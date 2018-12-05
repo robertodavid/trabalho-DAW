@@ -10,7 +10,7 @@
 <section class="paciente" id="paciente">
     <h2>Editar Paciente</h2>
 
-    <form class="" action="index.html" method="post">
+    <form class="" action="" method="post">
         <fieldset>
             <input type="hidden" name="id_paciente" value="<?php echo $paciente['paciente']->id_paciente; ?>">
 
@@ -45,15 +45,14 @@
             <p>
                 <label for="id_conv">Convênio:</label><br />
                 <select class="btn" name="id_conv">
-                    <option value="">alterar</option>
-                    <option value="1" >particular</option>
-                    <option value="2">Unimed</option>
-                    <option value="3">Dente Torto</option>
-                    <option value="4">Dente Bambo</option>
+                    <?php foreach ($convenios as $convenio): ;?>
+                    <option value="<?php echo $convenio->id_conv ;?>" <?php if ($convenio->id_conv == $paciente['paciente']->id_conv){echo "selected";} ;?>><?php echo $convenio->empresa ;?></option>
+
+                    <?php endforeach; ?>
                 </select>
             </p>
             <p>
-                <input type="submit" name="enviar" value="Adicionar" class="btn btn-laranja">
+                <input type="submit" name="enviar" value="Salvar" class="btn btn-laranja">
             </p>
         </fieldset>
     </form>

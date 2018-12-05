@@ -164,7 +164,7 @@ class PacienteDAO extends Model
               'msg' => ''
           );
 
-            $sql = "UPDATE pacientes SET nome = :nome, dt_nasc = :dt_nasc, nacion = :nacion, est_civil = est_civil, cpf = :cpf, ci = :ci, whats = :whats, id_conv = :id_conv
+            $sql = "UPDATE pacientes SET nome = :nome, dt_nasc = :dt_nasc, nacion = :nacion, est_civil = :est_civil, cpf = :cpf, ci = :ci, whats = :whats, id_conv = :id_conv
                     WHERE id_paciente = :id_paciente";
             $sql = $this->pdo->prepare($sql);
 
