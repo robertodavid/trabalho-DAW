@@ -16,6 +16,7 @@ class Convenio extends Model
     private $id_conv;
     private $empresa;
     private $ativo;
+    private $contato;
 
     public function getId_conv()
     {
@@ -45,6 +46,15 @@ class Convenio extends Model
     public function setAtivo($ativo)
     {
         $this->ativo = $ativo;
+    }
+    public function getContato()
+    {
+        return $this->contato;
+    }
+
+    public function setContato($contato)
+    {
+        $this->contato = $contato;
     }
 
 

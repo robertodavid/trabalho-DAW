@@ -19,11 +19,30 @@ class ConvenioController extends Controller
             'convenios' => ''
         );
 
+        $this->loadTemplate('convenios', $dados);
+    }
+    public function listar(){
+        $dados = array(
+            'convenios'=>''
+        );
         $convD = new ConvenioDAO();
 
         $dados['convenios'] = $convD->listar();
 
 
-        $this->loadTemplate('convenio', $dados);
+        $this->loadTemplate('C_lista', $dados);
+
     }
+    public function add(){
+        $dados = array(
+            'convenios'=>''
+        );
+
+
+
+        $this->loadTemplate('c_add', $dados);
+
+    }
+
+
 }

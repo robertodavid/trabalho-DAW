@@ -40,18 +40,21 @@ class PacienteController extends Controller
         $this->loadTemplate('p_list', $dados);
     }
 
-    public function addPaciente() {
+    public function add() {
         $dados = array(
-            'aviso' => ''
+            'aviso' => '',
+            'paciente' => '',
+            'convenios' => ''
         );
 
         $pd = new PacienteDAO();
         $p = new Paciente();
+        $cd = new ConvenioDAO();
 
         if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['dt_nasc']) && !empty($_POST['dt_nasc']) && isset($_POST['cpf']) && !empty($_POST['cpf'])){
             $nome = addslashes($_POST['nome']);
             $dt_nasc = addslashes($_POST['dt_nasc']);
-            $nacion = md5(addslashes($_POST['nacion']));
+            $nacion = addslashes($_POST['nacion']);
             $est_civil = addslashes($_POST['est_civil']);
             $cpf = addslashes($_POST['cpf']);
             $ci = addslashes($_POST['ci']);
@@ -76,6 +79,8 @@ class PacienteController extends Controller
 
 
                 $dados['aviso'] = $pd->inserir($p);
+                $this->loadTemplate('p_list', $dados);
+
 
             }else{
                 $dados['aviso'] = "Paciente já consta no sistema";
@@ -85,6 +90,7 @@ class PacienteController extends Controller
         }
 
         $dados['aviso'] ="";
+        $dados['convenios'] = $cd->listar();
 
 
         $this->loadTemplate('cadPaciente', $dados);
@@ -126,7 +132,6 @@ class PacienteController extends Controller
 
         $pd = new PacienteDAO();
         $p = new Paciente();
-        $c = new Convenio();
         $cd = new ConvenioDAO();
 
         if(isset($_GET['id']) && !empty($_GET['id'])){
@@ -147,7 +152,7 @@ class PacienteController extends Controller
             $id_paciente = addslashes($_POST['id_paciente']);
             $nome = addslashes($_POST['nome']);
             $dt_nasc = addslashes($_POST['dt_nasc']);
-            $nacion = md5(addslashes($_POST['nacion']));
+            $nacion = addslashes($_POST['nacion']);
             $est_civil = addslashes($_POST['est_civil']);
             $cpf = addslashes($_POST['cpf']);
             $ci = addslashes($_POST['ci']);
@@ -184,6 +189,22 @@ class PacienteController extends Controller
 
 
         $this->loadTemplate('paciente', $dados);
+    }
+
+    public function get(){
+        $dados = array(
+            'pacientes' => ''
+        );
+        $paci = new Paciente();
+        $paciD = new PacienteDAO();
+
+        if(isset($_POST['busca']) && !empty($_POST['busca'])){
+            $busca = addslashes($_POST['busca']);
+            $paci->setNome($busca);
+            $dados['pacientes'] = $paciD->buscar($paci);
+
+            $this->loadTemplate('busca', $dados);
+        }
     }
 
 }

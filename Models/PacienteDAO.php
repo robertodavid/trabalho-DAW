@@ -88,7 +88,7 @@ class PacienteDAO extends Model
             $sql = "SELECT * FROM pacientes WHERE nome = :nome";
             $sql = $this->pdo->prepare($sql);
 
-            $sql->bindValue(':id_paciente', $paciente->getNome());
+            $sql->bindValue(':nome', $paciente->getNome());
 
             $sql->execute();
 
@@ -106,7 +106,7 @@ class PacienteDAO extends Model
     public function inserir(Paciente $paciente)
     {
         try{
-            $sql = "INSERT INTO paciente (nome, dt_nasc, nacion, est_civil, cpf, ci, whats, id_conv)
+            $sql = "INSERT INTO pacientes (nome, dt_nasc, nacion, est_civil, cpf, ci, whats, id_conv)
                                   VALUES (:nome, :dt_nasc, :nacion, :est_civil, :cpf, :ci, :whats, :id_conv)";
             $sql = $this->pdo->prepare($sql);
 
@@ -187,6 +187,30 @@ class PacienteDAO extends Model
 
                 $dados['msg'] = "Erro na Atualização do usuário";
                 return $dados;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+
+    public function buscar(Paciente $paciente)
+    {
+        try{
+            $sql = "SELECT * FROM pacientes WHERE nome like :nome";
+            $sql = $this->pdo->prepare($sql);
+
+            $likenome = '%'.$paciente->getNome().'%';
+
+            $sql->bindValue(':nome', $likenome);
+
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+                $dados = $sql->fetchAll();
+                return $dados;
+            }else{
+                return "Nenhum paciente encontrado";
             }
 
         }catch (\PDOException $e){

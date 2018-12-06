@@ -1,17 +1,16 @@
-
-
 <?php
 /**
  * Created by PhpStorm.
- * User: rpdavid
- * Date: 15/10/18
- * Time: 15:15
+ * User: RPDavid
+ * Date: 05/12/2018
+ * Time: 21:46
  */
 ?>
-<section class="paciente" id="paciente">
-        {{ ativar('paciente') }}
 
-    <form class="" action="<?php BASE_URL ;?>paciente/get" method="post">
+<section class="paciente" id="paciente">
+    {{ ativar('paciente') }}
+
+    <form class="" action="" method="post">
         <h3>Informe o nome do Paciente</h3>
         <input type="text" name="busca" value="" class="btn">
         <input class="sub btn btn-laranja" type="submit" name="buscar" value="Buscar Paciente">
