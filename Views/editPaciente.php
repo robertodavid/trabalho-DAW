@@ -5,7 +5,9 @@
  * Date: 12/11/2018
  * Time: 16:19
  */
-
+echo "<pre>";
+var_dump($paciente);
+echo "</pre>";
 ?>
 <section class="paciente" id="paciente">
     <h2>Editar Paciente</h2>

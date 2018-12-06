@@ -2,27 +2,52 @@
 /**
  * Created by PhpStorm.
  * User: RPDavid
- * Date: 12/11/2018
- * Time: 16:25
+ * Date: 06/12/2018
+ * Time: 15:43
  */
-?>
 
+echo "<pre>";
+var_dump($paciente);
+echo "</pre>";
+echo "<pre>";
+var_dump($telefones);
+echo "</pre>";
+echo "<pre>";
+var_dump($enderecos);
+echo "</pre>";
+?>
 <section class="paciente" id="paciente">
     <h2>Paciente</h2>
-    <a href="<?php echo BASE_URL."paciente/dados/?id=".$paciente['paciente']->id_paciente; ?>"><button class="btn btn-laranja">Telefones e Endereços</button><br /><br /></a>
 
     <form class="" action="" method="post">
         <fieldset>
-            <input type="hidden" name="id_paciente" value="<?php echo $paciente['paciente']->id_paciente; ?>">
+            <input type="hidden" name="id_paciente" value="<?php echo $paciente[0]->id_paciente; ?>">
 
             <p>
                 <label for="nome">Nome:</label><br/>
-                <input disabled type="text" name="nome" value="<?php echo $paciente['paciente']->nome; ?>" placeholder="nome do paciente..." class="btn">
+                <input disabled type="text" name="nome" value="<?php echo $paciente[0]->nome; ?>" placeholder="nome do paciente..." class="btn">
             </p>
-            <p>
-                <label for="dt_nasc">Data de Nascimento:</label><br/>
-                <input disabled type="date" name="dt_nasc" value="<?php echo $paciente['paciente']->dt_nasc;?>" placeholder="" class="btn">
-            </p>
+
+
+                <?php
+                    if ($telefones['msg'] != ""){
+                        echo $telefones['msg'];
+                    }else{
+                        foreach ($telefones as $tel):
+                            echo "<pre>";
+                            var_dump($tel);
+                            echo "</pre>";
+                            die();
+                            ?>
+
+                            <p>
+                                <label for="dt_nasc">Telefone:</label><br/>
+                                <input disabled type="text" name="telefone" value="<?php echo $telefone->telefone;?>" placeholder="" class="btn">
+                            </p>
+                <?php endforeach;
+                    }
+                ;?>
+
             <p>
                 <label for="nacion">Nacionalidade:</label><br/>
                 <input disabled type="text" name="nacion" value="<?php echo $paciente['paciente']->nacion;?>" placeholder="nacionalidade do paciente..." class="btn">
@@ -56,4 +81,3 @@
         </fieldset>
     </form>
 </section>
-

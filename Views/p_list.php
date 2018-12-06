@@ -7,6 +7,9 @@
  * Date: 15/10/18
  * Time: 15:15
  */
+echo "<pre>";
+var_dump($aviso);
+echo "</pre>";
 ?>
 <section class="paciente" id="paciente">
         {{ ativar('paciente') }}
@@ -35,7 +38,7 @@
                     <td><?php echo $paciente->ci; ?></td>
                     <td><?php echo $paciente->whats; ?></td>
                     <td>
-                        <a href="<?php echo BASE_URL."paciente/exibirPaciente/?id=".$paciente->id_paciente; ?>"> <button type="button" name="ver" class="btn-sm btn-verde">Ver</button> </a>
+                        <a href="<?php echo BASE_URL."paciente/exibir/?id=".$paciente->id_paciente; ?>"> <button type="button" name="ver" class="btn-sm btn-verde">Ver</button> </a>
                         <a href="<?php echo BASE_URL."paciente/editPaciente/?id=".$paciente->id_paciente; ?>"> <button type="button" name="ver" class="btn-sm btn-azul">Edit</button> </a>
                     </td>
                 </tr>

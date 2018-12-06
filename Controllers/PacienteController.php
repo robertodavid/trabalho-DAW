@@ -12,8 +12,12 @@ namespace Controllers;
 use Core\Controller;
 use Models\Convenio;
 use Models\ConvenioDAO;
+use Models\Endereco;
+use Models\EnderecoDAO;
 use Models\Paciente;
 use Models\PacienteDAO;
+use Models\Telefone;
+use Models\TelefoneDAO;
 
 class PacienteController extends Controller
 {
@@ -96,26 +100,34 @@ class PacienteController extends Controller
         $this->loadTemplate('cadPaciente', $dados);
     }
 
-    public function exibir($id_paciente){
+    public function exibir(){
         $dados = array(
             'aviso' => '',
-            'paciente' => ''
+            'paciente' => '',
+            'convenios' => ''
         );
 
         $pd = new PacienteDAO();
         $p = new Paciente();
+        $cd = new ConvenioDAO();
 
 
-        if(isset($id_paciente) && !empty($id_paciente)){
+
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $id_paciente = addslashes($_GET['id']);
             $p->setId_paciente($id_paciente);
 
-            if(!$pd->idExiste($p)){
-
+            if($pd->idExiste($p)){
 
                 $dados['paciente'] = $pd->getPaciente($p);
+                $dados['convenios'] = $cd->listar();
+
+                $this->loadTemplate('paciente', $dados);
+                die();
 
             }else{
                 $dados['aviso'] = "Paciente já consta no sistema";
+
             }
         }
 
@@ -205,6 +217,64 @@ class PacienteController extends Controller
 
             $this->loadTemplate('busca', $dados);
         }
+    }
+
+    public function dados(){
+        $dados = array(
+            'aviso' => '',
+            'paciente' => ''
+        );
+
+        $p = new Paciente();
+        $pd = new PacienteDAO();
+
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $id_paciente = addslashes($_GET['id']);
+            $p->setId_paciente($id_paciente);
+
+            if($pd->idExiste($p)){
+                $dados['paciente'] = $pd->buscar($p);
+                $this->loadTemplate('dados', $dados);
+
+            }else{
+                $dados['aviso']= "Paciente não encontrado";
+            }
+        }
+    }
+
+    public function exibirDados(){
+    $dados = array(
+        'aviso' => '',
+        'paciente' => '',
+        'telefones' => '',
+        'enderecos' => ''
+    );
+
+    $p = new Paciente();
+    $pd = new PacienteDAO();
+    $t = new Telefone();
+    $td = new TelefoneDAO();
+    $e = new Endereco();
+    $ed = new EnderecoDAO();
+
+    if(isset($_GET['id']) && !empty($_GET['id'])){
+        $id_paciente = addslashes($_GET['id']);
+        $p->setId_paciente($id_paciente);
+        $t->setId_paciente($id_paciente);
+        $e->setId_paciente($id_paciente);
+
+        if($pd->idExiste($p)){
+            $dados['paciente'] = $pd->buscar($p);
+            $dados['telefones'] = $td->getTelefone($t);
+            $dados['enderecos'] = $ed->getEndereco($e);
+            $this->loadTemplate('exibirDados', $dados);
+
+        }else{
+            $dados['aviso']= "Paciente não encontrado";
+        }
+    }
+
+
     }
 
 }
