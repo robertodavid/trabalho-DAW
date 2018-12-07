@@ -28,56 +28,86 @@ echo "</pre>";
                 <input disabled type="text" name="nome" value="<?php echo $paciente[0]->nome; ?>" placeholder="nome do paciente..." class="btn">
             </p>
 
+            <h2>Telefone:</h2>
+            <a href="<?php echo BASE_URL."telefone/add/?id=".$paciente[0]->id_paciente; ?>"> <button type="button" name="ver" class="btn btn-laranja">Adicionar Telefone</button> </a>
 
-                <?php
+            <?php
                     if ($telefones['msg'] != ""){
-                        echo $telefones['msg'];
+                        ?>
+                        <p>
+                            <label for="dt_nasc">Telefone:</label><br/>
+                            <input disabled type="text" name="telefone" value="<?php echo $telefones->msg;?>" placeholder="" class="btn">
+                        </p>
+                        <?php
                     }else{
-                        foreach ($telefones as $tel):
-                            echo "<pre>";
-                            var_dump($tel);
-                            echo "</pre>";
-                            die();
-                            ?>
+                        foreach ($telefones['telefones'] as $tel): ?>
 
                             <p>
                                 <label for="dt_nasc">Telefone:</label><br/>
-                                <input disabled type="text" name="telefone" value="<?php echo $telefone->telefone;?>" placeholder="" class="btn">
+                                <input disabled type="text" name="telefone" value="<?php echo $tel->telefone;?>" placeholder="" class="btn">
+                            </p>
+                            <p>
+                                <textarea disabled> <?php echo $tel->obs;?> </textarea>
                             </p>
                 <?php endforeach;
                     }
                 ;?>
 
-            <p>
-                <label for="nacion">Nacionalidade:</label><br/>
-                <input disabled type="text" name="nacion" value="<?php echo $paciente['paciente']->nacion;?>" placeholder="nacionalidade do paciente..." class="btn">
-            </p>
-            <p>
-                <label for="est_civil">Estado civil:</label><br/>
-                <input disabled type="text" name="est_civil" value="<?php echo $paciente['paciente']->est_civil;?>" placeholder="estado civil do paciente..." class="btn">
-            </p>
-            <p>
-                <label for="cpf">CPF:</label><br/>
-                <input disabled type="number" name="cpf" value="<?php echo $paciente['paciente']->cpf;?>" placeholder="cpf do paciente..." class="btn">
-            </p>
-            <p>
-                <label for="ci">Identidade:</label><br/>
-                <input disabled type="text" name="ci" value="<?php echo $paciente['paciente']->ci;?>" placeholder="carteira de identidade do paciente..." class="btn">
-            </p>
-            <p>
-                <label for="whats">WhatsApp:</label><br/>
-                <input disabled type="number" name="whats" value="<?php echo $paciente['paciente']->whats;?>" placeholder="WhatsApp do paciente..." class="btn">
-            </p>
-            <p>
-                <label for="id_conv">Convênio:</label><br />
-                <select disabled class="btn" name="id_conv">
-                    <?php foreach ($convenios as $convenio): ;?>
-                        <option value="<?php echo $convenio->id_conv ;?>" <?php if ($convenio->id_conv == $paciente['paciente']->id_conv){echo "selected";} ;?>><?php echo $convenio->empresa ;?></option>
 
-                    <?php endforeach; ?>
-                </select>
+            <h2>Endereço:</h2>
+            <a href="<?php echo BASE_URL."endereco/add/?id=".$paciente[0]->id_paciente; ?>"> <button type="button" name="ver" class="btn btn-laranja">Adicionar Telefone</button> </a>
+            <?php
+            if ($enderecos['msg'] != ""){
+                ?>
+                <p>
+                    <label for="dt_nasc">Msg:</label><br/>
+                    <input disabled type="text" name="msg" value="<?php echo $enderecos['msg'] ;?>" placeholder="" class="btn">
+                </p>
+                <?php
+            }else{
+                foreach ($enderecos['enderecos'] as $end): ?>
 
-            </p>
+                    <p>
+                        <label for="dt_nasc">Logradouro:</label><br/>
+                        <input disabled type="text" name="logradouro" value="<?php echo $end->logradouro;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <label for="dt_nasc">Logradouro:</label><br/>
+                        <input disabled type="text" name="numero" value="<?php echo $end->numero;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <label for="dt_nasc">Complemento:</label><br/>
+                        <input disabled type="text" name="complemento" value="<?php echo $end->complemento;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <label for="dt_nasc">Bairro:</label><br/>
+                        <input disabled type="text" name="bairro" value="<?php echo $end->bairro;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <label for="dt_nasc">Cidade:</label><br/>
+                        <input disabled type="text" name="cidade" value="<?php echo $end->cidade;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <label for="dt_nasc">UF:</label><br/>
+                        <input disabled type="text" name="uf" value="<?php echo $end->uf;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <label for="dt_nasc">Cep:</label><br/>
+                        <input disabled type="text" name="cep" value="<?php echo $end->cep;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <label for="dt_nasc">Tipo:</label><br/>
+                        <input disabled type="text" name="tipo" value="<?php echo $end->tipo;?>" placeholder="" class="btn">
+                    </p>
+                    <p>
+                        <textarea disabled> <?php echo $tel->obs;?> </textarea>
+                    </p>
+                <?php endforeach;
+            }
+            ;?>
+            <a href="<?php echo BASE_URL;?>paciente/listar/"> <button type="button" name="ver" class="btn btn-laranja">Voltar</button> </a>
+
         </fieldset>
     </form>
+
 </section>
