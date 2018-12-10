@@ -6,15 +6,15 @@
  * Time: 15:43
  */
 
-echo "<pre>";
-var_dump($paciente);
-echo "</pre>";
-echo "<pre>";
-var_dump($telefones);
-echo "</pre>";
-echo "<pre>";
-var_dump($enderecos);
-echo "</pre>";
+//echo "<pre>";
+//var_dump($paciente);
+//echo "</pre>";
+//echo "<pre>";
+//var_dump($telefones);
+//echo "</pre>";
+//echo "<pre>";
+//var_dump($enderecos);
+//echo "</pre>";
 ?>
 <section class="paciente" id="paciente">
     <h2>Paciente</h2>

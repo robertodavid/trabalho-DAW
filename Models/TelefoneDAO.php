@@ -143,6 +143,8 @@ class TelefoneDAO extends Model
             $sql->bindValue(':id_paciente', $telefone->getId_paciente());
             $sql->bindValue(':telefone', $telefone->getTelefone());
             $sql->bindValue(':obs', $telefone->getObs());
+            $sql->bindValue(':id_fone', $telefone->getId_fone());
+
 
             if($sql->execute()){
 
@@ -151,6 +153,62 @@ class TelefoneDAO extends Model
             }else{
 
                 $dados['msg'] = "Erro na atualização do telefone";
+                return $dados;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+    public function delete(Telefone $telefone)
+    {
+        try{
+            $dados = array(
+                'msg' => ''
+            );
+
+            $sql = "DELETE FROM telefones WHERE id_fone = :id_fone";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':id_fone', $telefone->getId_fone());
+
+
+            if($sql->execute()){
+
+                return $dados;
+            }else{
+
+                $dados['msg'] = "Erro ao excluir o telefone";
+                return $dados;
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+
+    }
+    public function add(Telefone $telefone)
+    {
+        try{
+            $dados = array(
+                'msg' => ''
+            );
+
+            $sql = "INSERT INTO telefones (id_paciente, telefone, obs) VALUES (:id_paciente, :telefone, :obs) ";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':id_paciente', $telefone->getId_paciente());
+            $sql->bindValue(':telefone', $telefone->getTelefone());
+            $sql->bindValue(':obs', $telefone->getObs());
+
+
+            if($sql->execute()){
+
+                $dados['msg'] = "Telefone inserido com sucesso";
+                return $dados;
+            }else{
+
+                $dados['msg'] = "Erro ao inserir telefone";
                 return $dados;
             }
 

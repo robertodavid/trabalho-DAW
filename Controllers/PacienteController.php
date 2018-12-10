@@ -219,7 +219,7 @@ class PacienteController extends Controller
         }
     }
 
-    public function dados(){
+    public function dados2(){
         $dados = array(
             'aviso' => '',
             'paciente' => ''
@@ -242,7 +242,7 @@ class PacienteController extends Controller
         }
     }
 
-    public function exibirDados(){
+    public function dados(){
     $dados = array(
         'aviso' => '',
         'paciente' => '',
