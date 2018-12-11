@@ -7,6 +7,7 @@
  */
 ?>
 <section class="paciente" id="paciente">
+    {{ makeActive('pacientes') }}
     <h2>Adicionar Paciênte</h2>
 
     <form class="" action="" method="post">

@@ -7,7 +7,8 @@
  */
 ?>
 
-<section class="dentista" id="dentista">
+<section class="dentista">
+    {{ makeActive("medicos") }}
     <h2>Dentistas</h2>
     <a href="<?php BASE_URL ;?>medico/add/"><button class="btn btn-laranja">Adicionar Dentista</button></a>
     <a href=<?php BASE_URL ;?>medico/listar/"><button class="btn btn-laranja">Listar</button><br /><br /></a>

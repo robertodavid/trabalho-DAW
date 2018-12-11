@@ -7,7 +7,8 @@
  */
 ?>
 
-<section class="convenio" id="convenio">
+<section class="convenio" >
+    {{makeActive('convenios')}}
     <form class="" action="index.html" method="post">
         <h3>Informe o nome do Convenio</h3>
         <input type="text" name="busca" value="" class="btn">

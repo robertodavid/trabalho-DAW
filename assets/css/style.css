@@ -486,7 +486,7 @@ section {
     display: none;
   }
 }
-.menu {
+nav {
   display: none;
   position: fixed;
   background-color: #f15a24;
@@ -495,25 +495,32 @@ section {
   top: 75px;
   right: 0;
 }
-.menu ul {
+nav.home .home,
+nav.pacientes .pacientes,
+nav.medicos .medicos,
+nav.convenios .convenios,
+nav.consultas .consultas {
+  background-color: #414042;
+}
+nav ul {
   width: 100%;
   float: left;
   text-align: center;
 }
-.menu li {
+nav li {
   padding: 10px;
 }
-.menu li a {
+nav li a {
   font-size: 2em;
   color: #fff;
   padding: 2% 3%;
   text-transform: uppercase;
 }
-.menu li a:hover {
+nav li a:hover {
   border: 1px solid #202021;
 }
 @media only screen and (min-width: 800px) {
-  .menu {
+  nav {
     display: block;
     float: right;
     -webkit-box-align: center;
@@ -525,25 +532,32 @@ section {
     background-color: transparent;
     top: auto;
   }
-  .menu ul,
-  .menu li {
+  nav.home .home,
+  nav.pacientes .pacientes,
+  nav.medicos .medicos,
+  nav.convenios .convenios,
+  nav.consultas .consultas {
+    background-color: #f15a24;
+  }
+  nav ul,
+  nav li {
     list-style: none;
     margin: 2px;
     padding: 11px 0;
     float: left;
   }
-  .menu ul {
+  nav ul {
     display: block;
     float: right;
   }
-  .menu ul a {
+  nav ul a {
     display: inline-block;
     padding: 5px;
     font-size: 1em;
     text-transform: uppercase;
     line-height: 1;
   }
-  .menu ul a:hover {
+  nav ul a:hover {
     border: 1px solid #f15a24;
   }
 }

@@ -9,8 +9,8 @@
  */
  ?>
 
-<section class="paciente" id="paciente">
-    {{ ativar('paciente') }}
+<section class="paciente">
+    {{ makeActive("pacientes") }}
 
     <h2>Pacientes</h2>
     <a href="<?php echo BASE_URL;?>paciente/add/"><button class="btn btn-laranja">Adicionar paciente</button></a>

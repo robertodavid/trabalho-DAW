@@ -7,7 +7,7 @@ echo "</pre>";
 
 echo BASE_URL;
 ?>
-
+{{ makeActive("usuarios") }}
 <h1>Página Usuário</h1>
 
 

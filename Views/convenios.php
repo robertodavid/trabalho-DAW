@@ -8,6 +8,7 @@
 ?>
 
 <section class="convenio" id="convenio">
+    {{makeActive('convenios')}}
     <h2>Convenio</h2>
     <a href="<?php BASE_URL ;?>convenio/add/"><button class="btn btn-laranja">Adicionar Convenio</button></a>
     <a href="<?php BASE_URL ;?>convenio/listar/"><button class="btn btn-laranja">Listar</button><br /><br /></a>

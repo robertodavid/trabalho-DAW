@@ -8,7 +8,7 @@
 ?>
 
 <section class="paciente" id="paciente">
-    {{ ativar('paciente') }}
+    {{ makeActive('paciente') }}
 
     <form class="" action="" method="post">
         <h3>Informe o nome do Paciente</h3>

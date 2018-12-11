@@ -8,7 +8,8 @@
 ?>
 
 <section id="home" class="pg-home">
-    {{ ativar('home') }}
+    {{ makeActive("home") }}
+    {{msg}}
 
     <h2>Informações do sistema</h2>
     <div class="dados">

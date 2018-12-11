@@ -9,6 +9,7 @@
 ?>
 
 <section class="dentista" id="dentista">
+    {{ makeActive("medicos") }}
     <form class="" action="index.html" method="post">
         <h3>Informe o nome do Dentista</h3>
         <input type="text" name="busca" value="" class="btn">

@@ -10,8 +10,7 @@
 
 ?>
 <section class="paciente" id="paciente">
-        {{ ativar('paciente') }}
-
+    {{ makeActive("pacientes") }}
     <form class="" action="<?php BASE_URL ;?>paciente/get" method="post">
         <h3>Informe o nome do Paciente</h3>
         <input type="text" name="busca" value="" class="btn">

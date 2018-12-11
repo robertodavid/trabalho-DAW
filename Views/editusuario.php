@@ -12,6 +12,7 @@ foreach ($usuario as $u):
 ?>
 
 <div class="news">
+    {{ makeActive("usuarios") }}
     <div class="container">
         <h3 class="head">Área Administrativa:</h3>
         <p class="ls_head_para">Edição de usuáro</p>

@@ -10,6 +10,7 @@ var_dump($paciente);
 echo "</pre>";
 ?>
 <section class="paciente" id="paciente">
+    {{makeActive('pacientes')}}
     <h2>Editar Paciente</h2>
 
     <form class="" action="" method="post">

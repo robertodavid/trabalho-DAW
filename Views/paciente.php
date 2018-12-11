@@ -7,7 +7,8 @@
  */
 ?>
 
-<section class="paciente" id="paciente">
+<section class="paciente">
+    {{ makeActive("pacientes") }}
     <h2>Paciente</h2>
     <a href="<?php echo BASE_URL."paciente/dados/?id=".$paciente['paciente']->id_paciente; ?>"><button class="btn btn-laranja">Telefones e Endereços</button><br /><br /></a>
 
