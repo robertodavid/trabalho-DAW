@@ -184,4 +184,11 @@ class UsuarioDAO extends Model
         }
     }
 
+    public function verificarLogin(){
+        if(!isset($_SESSION['lgdental']) || (isset($_SESSION['lgdental']) && !empty($_SESSION['lgdental']))){
+            header("Location: ".BASE_URL."login");
+            exit();
+        }
+    }
+
 }
