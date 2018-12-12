@@ -7,7 +7,7 @@ let login = new Vue({
         errsenha: null,
     },
     methods: {
-        validar: function(){
+        validar: function(e){
             if (!this.email) {
                 this.erremail="O e-mail deve ser preenchido!";
             }else if(!this.emailValido(this.email)) {
@@ -15,12 +15,12 @@ let login = new Vue({
             }else{
                 this.erremail = null;
             }
-            if (!this.errsenha) {
+            if (!this.senha) {
                 this.errsenha="A senha  deve ser preenchida";
             }else{
                 this.errsenha = null;
             }
-            if(!this.errsenha != null || !this.erremail != null){
+            if(!this.errsenha || !this.erremail){
                 return true;
             }else{
                 e.preventDefault();

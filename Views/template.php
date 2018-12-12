@@ -44,6 +44,7 @@
                     <li><a href="<?php echo BASE_URL;?>medico" class="medicos" v-on:click="makeActive('medicos')">médicos</a></li>
                     <li><a href="<?php echo BASE_URL;?>convenio" class="convenios" v-on:click="makeActive('convenios')">convênios</a></li>
                     <li><a href="<?php echo BASE_URL?>" class="consultas" v-on:click="makeActive('consultas')">consultas</a></li>
+                    <li><a href="<?php echo BASE_URL?>login/sair/" class="sair" v-on:click="makeActive('sair')">sair</a></li>
                 </ul>
             </nav>
         </header>

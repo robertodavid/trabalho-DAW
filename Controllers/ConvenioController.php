@@ -10,9 +10,16 @@ namespace Controllers;
 
 use Core\Controller;
 use Models\ConvenioDAO;
+use Models\UsuarioDAO;
 
 class ConvenioController extends Controller
 {
+    public function __construct()
+    {
+        $uD = new UsuarioDAO();
+        $uD->verificarLogin();
+    }
+
     public function index()
     {
         $dados = array(

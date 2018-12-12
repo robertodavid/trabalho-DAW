@@ -44,7 +44,7 @@
 <main id="login">
     <div class="login-box">
 
-        <form class="" action="" method="post" v-on:submit.prevent="validar" novalidate="true">
+        <form method="post" v-on:submit="validar" novalidate="true">
 
             <div class="textbox">
                 <i class="fas fa-envelope"></i>
@@ -58,9 +58,13 @@
             </div>
             <label for="senha" v-if="errsenha != null">{{errsenha}}</label>
 
-            <input class="btn" type="submit" name="" value="ENTRAR">
+            <input class="btn" type="submit"  value="ENTRAR">
 
         </form>
+        {{erremail}}
+        <br><br>
+        {{errsenha}}
+
 
     </div>
 </main>

@@ -8,13 +8,14 @@
 
 namespace Models;
 
-use core\Model;
+
+use Core\Model;
 
 class Usuario extends Model
 {
     private $id_user;
     private $nome;
-    private $username;
+    private $email;
     private $password;
     private $lvlacesso;
 
@@ -42,14 +43,14 @@ class Usuario extends Model
         return $this;
     }
 
-    public function getUsername()
+    public function getEmail()
     {
-        return $this->username;
+        return $this->email;
     }
 
-    public function setUsername($username)
+    public function setEmail($email)
     {
-        $this->username = $username;
+        $this->email = $email;
 
         return $this;
     }

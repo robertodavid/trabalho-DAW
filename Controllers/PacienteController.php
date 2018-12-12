@@ -18,9 +18,16 @@ use Models\Paciente;
 use Models\PacienteDAO;
 use Models\Telefone;
 use Models\TelefoneDAO;
+use Models\UsuarioDAO;
 
 class PacienteController extends Controller
 {
+    public function __construct()
+    {
+        $uD = new UsuarioDAO();
+        $uD->verificarLogin();
+    }
+
     public function index()
     {
         $dados = array(

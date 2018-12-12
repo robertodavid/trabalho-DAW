@@ -11,9 +11,16 @@ namespace Controllers;
 
 use Core\Controller;
 use Models\EnderecoDAO;
+use Models\UsuarioDAO;
 
 class EnderecoController     extends Controller
 {
+    public function __construct()
+    {
+        $uD = new UsuarioDAO();
+        $uD->verificarLogin();
+    }
+
     public function index()
     {
         $dados = array(

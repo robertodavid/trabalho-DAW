@@ -185,10 +185,45 @@ class UsuarioDAO extends Model
     }
 
     public function verificarLogin(){
-        if(!isset($_SESSION['lgdental']) || (isset($_SESSION['lgdental']) && !empty($_SESSION['lgdental']))){
+        if(!isset($_SESSION['lgdental']) || (isset($_SESSION['lgdental']) && empty($_SESSION['lgdental']))){
             header("Location: ".BASE_URL."login");
             exit();
         }
+    }
+
+    public function logar( Usuario $usuario){
+        try{
+            $sql = "SELECT * FROM usuarios WHERE email = :email AND password = :password";
+            $sql = $this->pdo->prepare($sql);
+
+            $sql->bindValue(':email', $usuario->getEmail());
+            $sql->bindValue(':password', $usuario->getPassord());
+
+            $sql->execute();
+
+            if($sql->rowCount() > 0){
+               $ret = $sql->fetch();
+               echo "<pre>";
+               var_dump($ret);
+               echo "</pre>";
+//               die();
+               $_SESSION['lgdental']= $ret->id_user;
+               $_SESSION['nm']= $ret->nome;
+               $_SESSION['lvl']= $ret->lvlacesso;
+
+               header("Location: ".BASE_URL);
+
+            }else{
+               echo("E-mail e/ou senha invalidos");
+            }
+
+        }catch (\PDOException $e){
+            print $e->getMessage();
+        }
+    }
+    public function logout(){
+        session_destroy();
+        header("Location: ".BASE_URL);
     }
 
 }

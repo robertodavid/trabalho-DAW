@@ -12,7 +12,13 @@ use Models\Usuario;
 use Models\UsuarioDAO;
 
 class UsuarioController extends Controller
+{public function __construct()
 {
+    $uD = new UsuarioDAO();
+    $uD->verificarLogin();
+}
+
+
     public function index() {
         $dados = array(
             'usuarios' => ''

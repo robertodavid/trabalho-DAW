@@ -12,10 +12,17 @@ use \Core\Controller;
 use Models\ConvenioDAO;
 use Models\MedicoDAO;
 use Models\PacienteDAO;
+use Models\UsuarioDAO;
 
 class HomeController extends Controller {
 
-	public function index() {
+    public function __construct()
+    {
+        $uD = new UsuarioDAO();
+        $uD->verificarLogin();
+    }
+
+    public function index() {
 		$dados = array(
 		    'pacientes' => '',
             'medicos' => '',

@@ -12,9 +12,16 @@ namespace Controllers;
 use Core\Controller;
 use Models\Telefone;
 use Models\TelefoneDAO;
+use Models\UsuarioDAO;
 
 class TelefoneController extends Controller
 {
+    public function __construct()
+    {
+        $uD = new UsuarioDAO();
+        $uD->verificarLogin();
+    }
+
     public function index()
     {
         $dados = array(
@@ -37,7 +44,7 @@ class TelefoneController extends Controller
         $t = new Telefone();
         $tD = new TelefoneDAO();
 
-        if(isset$_POST['id_paciente'] && !empty($_POST['id_paciente']) && isset$_POST['telefone'] && !empty($_POST['telefone']) && isset$_POST['obs'] && !empty($_POST['obs'])){
+        if(isset($_POST['id_paciente']) && !empty($_POST['id_paciente']) && isset($_POST['telefone']) && !empty($_POST['telefone']) && isset($_POST['obs']) && !empty($_POST['obs'])){
             $id_paciente = addslashes($_POST['id_paciente']);
             $telefone = addslashes($_POST['telefone']);
             $obs = addslashes($_POST['obs']);
@@ -46,7 +53,7 @@ class TelefoneController extends Controller
             $t->setTelefone($telefone);
             $t->setObs($obs);
 
-            $dados['msg']=$tD->;
+            $dados['msg']=$tD->add($t);
         }
 
         $dados['telefones'] = $teleD->listar();

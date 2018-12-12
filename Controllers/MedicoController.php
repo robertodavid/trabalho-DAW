@@ -11,9 +11,16 @@ namespace Controllers;
 
 use Core\Controller;
 use Models\MedicoDAO;
+use Models\UsuarioDAO;
 
 class MedicoController extends Controller
 {
+    public function __construct()
+    {
+        $uD = new UsuarioDAO();
+        $uD->verificarLogin();
+    }
+
     public function index()
     {
         $dados = array(
