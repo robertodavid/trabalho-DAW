@@ -62,10 +62,7 @@
             <input class="btn" type="submit"  value="ENTRAR">
 
         </form>
-        {{erremail}}
-        <br><br>
-        {{errsenha}}
-        <br><br>
+
         <h2 v-if="erro"> {{ erro }}   <a href="" v-on:click="close"><i class="far fa-times-circle"></i></a></h2>
 
 

@@ -24,13 +24,13 @@ class UsuarioDAO extends Model
         }
     }
 
-    public function usernameExiste(Usuario $usuario)
+    public function emailExiste(Usuario $usuario)
     {
         try{
-            $sql = "SELECT * FROM usuarios WHERE username = :username";
+            $sql = "SELECT * FROM usuarios WHERE email = :email";
             $sql = $this->pdo->prepare($sql);
 
-            $sql->bindValue(':username', $usuario->getUsername());
+            $sql->bindValue(':email', $usuario->getEmail());
 
             $sql->execute();
 
@@ -69,14 +69,13 @@ class UsuarioDAO extends Model
     public function inserir(Usuario $usuario)
     {
         try{
-            $sql = "INSERT INTO usuarios (nome, username, password, lvlacesso)
-                                  VALUES (:nome, :username, :password, :lvlacesso)";
+            $sql = "INSERT INTO usuarios (nome, email, password)
+                                  VALUES (:nome, :email, :password)";
             $sql = $this->pdo->prepare($sql);
 
             $sql->bindValue(':nome', $usuario->getNome());
-            $sql->bindValue(':username', $usuario->getUsername());
+            $sql->bindValue(':email', $usuario->getEmail());
             $sql->bindValue(':password', $usuario->getPassord());
-            $sql->bindValue(':lvlacesso', $usuario->getLvlAcesso());
 
             if($sql->execute()){
                 return "Usuário inserido com sucesso.";
@@ -138,13 +137,13 @@ class UsuarioDAO extends Model
     public function update(Usuario $usuario)
     {
         try{
-            $sql = "UPDATE usuarios SET nome=:nome, username=:username, lvlacesso=:lvlacesso
+            $sql = "UPDATE usuarios SET nome=:nome, email=:email, lvlacesso=:lvlacesso
                     WHERE id_user = :id_user";
             $sql = $this->pdo->prepare($sql);
 
             $sql->bindValue(':id_user', $usuario->getIdUser());
             $sql->bindValue(':nome', $usuario->getNome());
-            $sql->bindValue(':username', $usuario->getUsername());
+            $sql->bindValue(':email', $usuario->getEmail());
             $sql->bindValue(':lvlacesso', $usuario->getLvlAcesso());
 
 

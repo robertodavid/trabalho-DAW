@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Dental Labs</title>
+    <title>Dental Clinic</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto" rel="stylesheet">
@@ -35,7 +35,7 @@
 <body>
     <div id="app">
         <header class="cabecalho">
-            <a href="<?php echo BASE_URL?>"><h1 class="logo">Dental Labs</h1></a>
+            <a href="<?php echo BASE_URL?>"><h1 class="logo">Dental Clinic</h1></a>
             <button class="btn-menu" v-on:click="menu"><i class="fas fa-bars"></i></button>
             <nav class="" v-bind:class="active" id="nav">
                 <ul>
@@ -43,7 +43,9 @@
                     <li><a href="<?php echo BASE_URL;?>paciente" class="pacientes" v-on:click="makeActive('pacientes')">pacientes</a> </li>
                     <li><a href="<?php echo BASE_URL;?>medico" class="medicos" v-on:click="makeActive('medicos')">médicos</a></li>
                     <li><a href="<?php echo BASE_URL;?>convenio" class="convenios" v-on:click="makeActive('convenios')">convênios</a></li>
-                    <li><a href="<?php echo BASE_URL?>" class="consultas" v-on:click="makeActive('consultas')">consultas</a></li>
+                    <?php if(isset($_SESSION['lvl']) && !empty($_SESSION['lvl']) && ($_SESSION['lvl'] >0)): ?>
+                    <li><a href="<?php echo BASE_URL;?>usuario" class="consultas" v-on:click="makeActive('consultas')">usuario</a></li>
+                    <?php endif; ?>
                     <li><a href="<?php echo BASE_URL?>login/sair/" class="sair" v-on:click="makeActive('sair')">sair</a></li>
                 </ul>
             </nav>
@@ -59,7 +61,7 @@
             <div class="ft">
                 <div class="conteudo-ft">
                     <div class="ft-left">
-                        Copyright © 2018 |  Dental Labs | All Rights Reserved
+                        Copyright © 2018 |  Dental Clinic | All Rights Reserved
                     </div>
                     <div class="ft-right">
                         Terms of Service | Privacy Policy

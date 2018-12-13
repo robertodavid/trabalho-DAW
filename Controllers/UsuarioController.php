@@ -29,50 +29,48 @@ class UsuarioController extends Controller
         $dados['usuarios'] = $ud->listar();
 
 
-        $this->loadTemplate('usuario', $dados);
+        $this->loadTemplate('usuarios', $dados);
     }
 
-    public function addUsuario() {
+    public function add() {
         $dados = array(
-            'aviso' => ''
+            'msg' => ''
         );
 
         $ud = new UsuarioDAO();
         $u = new Usuario();
 
-        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password'])){
+        if(isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password'])){
             $nome = addslashes($_POST['nome']);
-            $username = addslashes($_POST['username']);
+            $email = addslashes($_POST['email']);
             $password = md5(addslashes($_POST['password']));
-            $lvlacesso = addslashes($_POST['lvlacesso']);
 
             $u->setNome($nome);
-            $u->setUsername($username);
+            $u->setEmail($email);
             $u->setPassword($password);
-            $u->setLvlAcesso($lvlacesso);
 
 
-            if(!$ud->usernameExiste($u)){
+            if(!$ud->emailExiste($u)){
 
 
-                $dados['aviso'] = $ud->inserir($u);
+                $dados['msg'] = $ud->inserir($u);
 
             }else{
-                $dados['aviso'] = "Usuário já consta no sistema";
+                $dados['msg'] = "Usuário já consta no sistema";
             }
 
 
         }
 
-        $dados['aviso'] ="";
+        $dados['msg'] ="";
 
 
-        $this->loadTemplate('cadusuario', $dados);
+        $this->loadTemplate('add_usuario', $dados);
     }
 
-    public function editUsuario($id) {
+    public function edit() {
         $dados = array(
-            'aviso' => '',
+            'msg' => '',
             'usuario' =>''
         );
 
@@ -80,15 +78,15 @@ class UsuarioController extends Controller
         $u = new Usuario();
 
         if(isset($_POST['id_user']) && !empty($_POST['id_user']) && isset($_POST['nome']) && !empty($_POST['nome'])
-            && isset($_POST['username']) && !empty($_POST['username'])){
+            && isset($_POST['email']) && !empty($_POST['email'])){
             $id_user = addslashes($_POST['id_user']);
             $nome = addslashes($_POST['nome']);
-            $username = addslashes($_POST['username']);
+            $email = addslashes($_POST['email']);
             $levelacesso = addslashes($_POST['lvlacesso']);
 
             $u->setIdUser($id_user);
             $u->setNome($nome);
-            $u->setUsername($username);
+            $u->setEmail($email);
             $u->setLvlAcesso($levelacesso);
 
             $ret = $ud->update($u);
@@ -101,7 +99,7 @@ class UsuarioController extends Controller
 
             $u->setIdUser($id_user);
             $u->setNome($nome);
-            $u->setUsername($username);
+            $u->setEmail($email);
             $u->setLvlAcesso($levelacesso);
 
             $ret = $ud->update($u);
@@ -119,13 +117,13 @@ class UsuarioController extends Controller
 
 
             }else{
-                $dados['aviso'] = "Usuário já consta no sistema";
+                $dados['msg'] = "Usuário já consta no sistema";
             }
 
 
         }
 
-        $dados['aviso'] ="";
+        $dados['msg'] ="";
 
 
         $this->loadTemplate('editusuario', $dados);

@@ -90,7 +90,7 @@ class PacienteController extends Controller
 
 
                 $dados['aviso'] = $pd->inserir($p);
-                $this->loadTemplate('p_list', $dados);
+                header("Location: ".BASE_URL."pacientes/listar/");
 
 
             }else{

@@ -18,6 +18,7 @@ class Usuario extends Model
     private $email;
     private $password;
     private $lvlacesso;
+    private $ativo;
 
     public function getIdUser()
     {
@@ -75,6 +76,18 @@ class Usuario extends Model
     public function setLvlAcesso($lvlacesso)
     {
         $this->lvlacesso = $lvlacesso;
+
+        return $this;
+    }
+
+    public function getAtivo()
+    {
+        return $this->ativo;
+    }
+
+    public function setAtivo($ativo)
+    {
+        $this->ativo = $ativo;
 
         return $this;
     }

@@ -9,7 +9,6 @@
 
 <section id="home" class="pg-home">
     {{ makeActive("home") }}
-    {{msg}}
 
     <h2>Informações do sistema</h2>
     <div class="dados">
@@ -29,11 +28,11 @@
                 <span class="padding-m">Convênios</span>
                 <span class="result"><?php echo $convenios->nConv ;?></span>
             </li>
-            <li class="list-group-item">
-                <i class="far fa-calendar-plus"></i>
-                <samp class="padding-m">Consultas</samp>
-                <span class="result">38</span>
-            </li>
+<!--            <li class="list-group-item">-->
+<!--                <i class="far fa-calendar-plus"></i>-->
+<!--                <samp class="padding-m">Consultas</samp>-->
+<!--                <span class="result">38</span>-->
+<!--            </li>-->
         </ul>
     </div>
 </section>
