@@ -214,7 +214,7 @@ class UsuarioDAO extends Model
                header("Location: ".BASE_URL);
 
             }else{
-               echo("E-mail e/ou senha invalidos");
+               return "E-mail e/ou senha invalidos";
             }
 
         }catch (\PDOException $e){

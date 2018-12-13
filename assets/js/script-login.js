@@ -5,6 +5,7 @@ let login = new Vue({
         senha: null,
         erremail: null,
         errsenha: null,
+        erro: null,
     },
     methods: {
         validar: function(e){
@@ -20,7 +21,7 @@ let login = new Vue({
             }else{
                 this.errsenha = null;
             }
-            if(!this.errsenha || !this.erremail){
+            if(this.errsenha == null && this.erremail == null){
                 return true;
             }else{
                 e.preventDefault();
@@ -30,6 +31,12 @@ let login = new Vue({
         emailValido:function(email) {
             var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
+        },
+        close:function(){
+            this.erro = null;
+        },
+        addErro:function (er) {
+            this.erro = er;
         }
     }
 })

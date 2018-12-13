@@ -42,6 +42,7 @@
 </head>
 <body >
 <main id="login">
+    {{ addErro("<?php echo $erro;?>")}}
     <div class="login-box">
 
         <form method="post" v-on:submit="validar" novalidate="true">
@@ -64,6 +65,9 @@
         {{erremail}}
         <br><br>
         {{errsenha}}
+        <br><br>
+        <h2 v-if="erro"> {{ erro }}   <a href="" v-on:click="close"><i class="far fa-times-circle"></i></a></h2>
+
 
 
     </div>
