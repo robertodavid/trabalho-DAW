@@ -1,0 +1,102 @@
+@import "kouto-swiss"
+@import 'jeet'
+@import 'rupture'
+
+meyer-reset()
+box-sizing-reset()
+normalize()
+a
+  text-decoration none
+
+//=====>CORES<======
+preto         = #000000
+branco        = #FFFFFF
+cinza-escuro  = #202021
+cinza-texto   = #818081
+cinza-medio   = #414042
+cinza-claro   = #F9F9F9
+laranja       = #F15A24
+laranja-claro = #ffb497
+verde         = #91C46B
+azul          = #4BCAFF
+
+//======>ESCALA<======
+xs  = 400px
+s   = 600px
+m   = 800px
+x   = 1050px
+
+//======>TIPOGRAFIA<======
+font-family: 'Lato', sans-serif
+
+
+//======>MIXINS<======
+vendor(prop, args)
+ -webkit-{prop} args
+ -moz-{prop} args
+ {prop} args
+
+border-radius()
+ vendor('border-radius', arguments)
+
+
+main
+  height: 100vh
+  width: 100vw
+  background-color: cinza-medio
+
+.login-box
+  padding-top  30px
+  width  280px
+  position  absolute
+  top  50%
+  left  50%
+  transform  translate(-50%, -50%)
+  color  branco
+
+.textbox
+  width  100%auto overflow  hidden
+  font-size  15px
+  padding  8px 0
+  margin-top  20px
+  border-bottom  2px solid laranja
+
+  i
+    width  26px
+    float  left
+    text-align  center
+
+  input
+    border none
+    outline  none
+    background  none
+    color  branco
+    font-size  18px
+    width  80%
+    margin  0 10px
+    +placeholder()
+      color  branco
+
+label
+  color  laranja
+  font-size  10px
+  margin-top  1px
+
+.btn
+  width  100%
+  height  30px
+  background-color  laranja-claro
+  color branco
+  padding  5px
+  font-size  18px
+  cursor  pointer
+  border  none
+  border-radius(15px)
+  margin 30px 0
+
+
+h2 a
+    margin-left: 10px
+    font-size: 15px
+    text-decoration: none
+    color: branco

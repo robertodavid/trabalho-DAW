@@ -1,0 +1,308 @@
+@import "kouto-swiss"
+@import 'jeet'
+@import 'rupture'
+
+meyer-reset()
+box-sizing-reset()
+normalize()
+a
+  text-decoration none
+
+//=====>CORES<======
+preto         = #000000
+branco        = #FFFFFF
+cinza-escuro  = #202021
+cinza-texto   = #818081
+cinza-medio   = #414042
+cinza-claro   = #F9F9F9
+laranja       = #F15A24
+laranja-claro = #ffb497
+verde         = #91C46B
+azul          = #4BCAFF
+
+//======>ESCALA<======
+s   = 425px
+m   = 678px
+l   = 1024px
+
+//======>TIPOGRAFIA<======
+font-family 'Lato', sans-serif
+
+
+//======>MIXINS<======
+vendor(prop, args)
+ -webkit-{prop} args
+ -moz-{prop} args
+ {prop} args
+
+border-radius()
+ vendor('border-radius', arguments)
+
+
+
+//======>ELEMENTOS<======
+.btn
+  border-radius(10px)
+  padding 1.5% 3%
+  font-weight 600
+
+.btn-laranja
+  background-color laranja
+
+.btn-verde
+  background-color verde
+
+.btn-azul
+  background-color azul
+
+.btn-sm
+  width 45%
+  height 20px
+  font-size em(12)
+
+h2
+  font-size em(23)
+  font-weight 700
+  padding 3%
+
+h3
+  font-size em(18)
+  font-weight 600
+  padding 1%
+  +above("l")
+    font-size: em(20)
+
+table
+  border-collapse collapse
+  width 95%
+  margin auto
+  margin-top 5%
+  margin-bottom: 5%
+
+
+  th, td
+    text-align left
+    padding 1%
+
+
+  td
+    border-radius(5px)
+    vertical-align:middle;
+    text-transform: uppercase;
+    button
+      float left
+      border-radius(5px)
+
+  tr:nth-child(even)
+    background-color cinza-texto
+form
+  +above("m")
+    width 60%
+    margin auto
+label
+  font-size em(18)
+  float left
+  padding 1.5% 3%
+  +above("l")
+    font-size: em(20)
+
+button, input, select
+  width 95%
+  margin 2% 1.5%
+  padding 1.5% 2%
+  font-size em(15)
+  +above("l")
+    font-size: em(20)
+
+input, select
+  text-transform: uppercase;
+button
+  +above("m")
+    width 50%
+
+section
+  padding-top 3%
+  background-color cinza-claro
+  margin auto
+  text-align center
+
+//======>LAYOUT<======
+
+//------>cabecalho------<
+.cabecalho
+  height 75px
+  width 100%
+  padding 0 15px
+  background-color cinza-medio
+  position fixed
+
+
+.logo
+  margin-top: 12px
+  width 56px
+  height 56px
+  float left
+  background url(../img/logo-mob.png) center center/56px no-repeat
+  font-size 0
+  +above('m')
+    margin: 10px
+    padding: 0
+    width 280px
+    background url(../img/logo.png) center center no-repeat
+
+.btn-menu
+  margin 10px
+  width 56px
+  height 56px
+  float right
+  text-align center
+  color branco
+  border-radius(56px)
+  background-image linear-gradient( to left,  laranja, laranja-claro )
+  cursor pointer
+
+  i
+    font-size 25px
+  +above('l')
+    display none
+
+//------>menu<------
+
+nav
+  display none
+  position fixed
+  background-color laranja
+  width 55%
+  height 100%
+  top 75px
+  right 0
+
+  &.home .home,
+  &.pacientes .pacientes,
+  &.medicos .medicos,
+  &.convenios .convenios,
+  &.consultas .consultas
+    background-color: cinza-medio
+
+  ul
+    width 100%
+    float left
+    text-align center
+
+
+  li
+    padding 10px
+
+    a
+      font-size em(32)
+      color branco
+      padding 2% 3%
+      text-transform uppercase
+
+    a:hover
+      border 1px solid cinza-escuro
+
+  +above('l')
+    display: block;
+    float: right;
+    align-items: center;
+    position: absolute;
+    height: 100%
+    // width: 80%
+    background-color: transparent
+    top: auto;
+    // right:auto;
+
+    &.home .home,
+    &.pacientes .pacientes,
+    &.medicos .medicos,
+    &.convenios .convenios,
+    &.consultas .consultas
+      background-color: laranja
+    ul, li
+      list-style: none;
+      margin 2px
+      padding 11px 0
+      float: left;
+
+    ul
+      display: block;
+      float: right;
+
+
+      a
+        display: inline-block;
+        padding: 5px
+        font-size: em(16)
+        text-transform uppercase
+        line-height: 1
+      a:hover
+        border 1px solid laranja
+
+main
+  padding: 75px 0
+
+
+section.pg-home
+  text-align center
+  margin auto
+  +above('m')
+    width 70%
+
+  div.dados
+    margin auto
+    width 95%
+
+    ul.list-system
+      text-align left
+      margin 5%
+      list-style-type none
+      font-size em(20)
+      font-weight bold
+      padding 3%
+
+      li
+        padding-top 7%
+
+      span.result
+        clear both
+        float right
+
+
+  div.dados
+    overflow-x auto
+    margin-top 3%
+    width 100%
+
+
+
+section.paciente
+  table
+    td:nth-of-type(2), th:nth-of-type(2),
+    td:nth-of-type(3), th:nth-of-type(3),
+    td:nth-of-type(4), th:nth-of-type(4)
+      display none
+
+section.dentista
+  table
+    td:nth-of-type(2), th:nth-of-type(2)
+      display none
+
+footer
+  position fixed
+  bottom 0
+  left 0
+  width 100%
+  .ft
+    width 100%
+    height 50px
+    background-color cinza-medio
+  .conteudo-ft
+    padding-top 15px
+    margin auto
+    font-size em(12)
+    color cinza-texto
+    .ft-left
+      text-align center
+    .ft-right
+      text-align center
