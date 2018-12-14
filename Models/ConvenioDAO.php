@@ -106,11 +106,11 @@ class ConvenioDAO extends Model
     public function inserir(Convenio $convenio)
     {
         try{
-            $sql = "INSERT INTO convenios (empresa, ativo) VALUES (:empresa, :ativo)";
+            $sql = "INSERT INTO convenios (empresa, contato) VALUES (:empresa, :contato)";
             $sql = $this->pdo->prepare($sql);
 
             $sql->bindValue(':empresa', $convenio->getEmpresa());
-            $sql->bindValue(':ativo', $convenio->getAtivo());
+            $sql->bindValue(':contato', $convenio->getContato());
 
             if($sql->execute()){
                 return "Convenio inserido com sucesso.";
@@ -130,7 +130,7 @@ class ConvenioDAO extends Model
                 'convenio' => '',
                 'msg' => ''
             );
-            $sql = "SELECT * FROM convenio WHERE id_conv = :id_conv";
+            $sql = "SELECT * FROM convenios WHERE id_conv = :id_conv";
             $sql = $this->pdo->prepare($sql);
 
             $sql->bindValue(':id_conv', $convenio->getId_conv());
@@ -160,11 +160,13 @@ class ConvenioDAO extends Model
                 'msg' => ''
             );
 
-            $sql = "UPDATE convenio SET empresa = :empresa, ativo = :ativo WHERE id_conv = :id_conv";
+            $sql = "UPDATE convenios SET empresa = :empresa, ativo = :ativo, contato = :contato WHERE id_conv = :id_conv";
             $sql = $this->pdo->prepare($sql);
 
             $sql->bindValue(':empresa', $convenio->getEmpresa());
             $sql->bindValue(':ativo', $convenio->getAtivo());
+            $sql->bindValue(':contato', $convenio->getContato());
+            $sql->bindValue(':id_conv', $convenio->getId_conv());
 
             if($sql->execute()){
 

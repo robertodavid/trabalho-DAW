@@ -90,17 +90,15 @@ class PacienteController extends Controller
 
 
                 $dados['aviso'] = $pd->inserir($p);
-                header("Location: ".BASE_URL."pacientes/listar/");
+                header("Location: ".BASE_URL."paciente/listar/");
+                exit();
 
 
             }else{
                 $dados['aviso'] = "Paciente já consta no sistema";
             }
-
-
         }
 
-        $dados['aviso'] ="";
         $dados['convenios'] = $cd->listar();
 
 
@@ -153,20 +151,6 @@ class PacienteController extends Controller
         $p = new Paciente();
         $cd = new ConvenioDAO();
 
-        if(isset($_GET['id']) && !empty($_GET['id'])){
-            $id_paciente = addslashes($_GET['id']);
-            $p->setId_paciente($id_paciente);
-
-            if($pd->idExiste($p)){
-                $dados['paciente'] = $pd->getPaciente($p);
-                $dados['convenios'] = $cd->listar();
-                $this->loadTemplate('editPaciente', $dados);
-
-            }else{
-                $dados['aviso']= "Paciente não encontrado";
-            }
-        }
-
         if(isset($_POST['id_paciente']) && !empty($_POST['id_paciente']) && isset($_POST['nome']) && !empty($_POST['nome']) && isset($_POST['dt_nasc']) && !empty($_POST['dt_nasc']) && isset($_POST['cpf']) && !empty($_POST['cpf'])){
             $id_paciente = addslashes($_POST['id_paciente']);
             $nome = addslashes($_POST['nome']);
@@ -190,10 +174,7 @@ class PacienteController extends Controller
             $p->setId_conv($id_conv);
 
 
-
-
             if(!$pd->idExiste($p)){
-
 
                 $dados['aviso'] = "Paciente Inválido!";
 
@@ -201,11 +182,23 @@ class PacienteController extends Controller
                 $dados['aviso'] = $pd->update($p);
             }
 
+        }
 
+        if(isset($_GET['id']) && !empty($_GET['id'])){
+            $id_paciente = addslashes($_GET['id']);
+            $p->setId_paciente($id_paciente);
+
+            if($pd->idExiste($p)){
+                $dados['paciente'] = $pd->getPaciente($p);
+                $dados['convenios'] = $cd->listar();
+                $this->loadTemplate('editPaciente', $dados);
+
+            }else{
+                $dados['aviso']= "Paciente não encontrado";
+            }
         }
 
         $dados['aviso'] ="";
-
 
         $this->loadTemplate('paciente', $dados);
     }

@@ -7,7 +7,7 @@
  */
 
 echo "<pre>";
-var_dump($convenios);
+var_dump($convenio);
 echo "</pre>";
 
 

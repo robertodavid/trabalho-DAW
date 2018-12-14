@@ -41,7 +41,7 @@
                 <ul>
                     <li><a href="<?php echo BASE_URL?>" class="home" v-on:click="makeActive('home')">home</a></li>
                     <li><a href="<?php echo BASE_URL;?>paciente" class="pacientes" v-on:click="makeActive('pacientes')">pacientes</a> </li>
-                    <li><a href="<?php echo BASE_URL;?>medico" class="medicos" v-on:click="makeActive('medicos')">médicos</a></li>
+                    <li><a href="<?php echo BASE_URL;?>medico" class="medicos" v-on:click="makeActive('medicos')">dentistas</a></li>
                     <li><a href="<?php echo BASE_URL;?>convenio" class="convenios" v-on:click="makeActive('convenios')">convênios</a></li>
                     <?php if(isset($_SESSION['lvl']) && !empty($_SESSION['lvl']) && ($_SESSION['lvl'] >0)): ?>
                     <li><a href="<?php echo BASE_URL;?>usuario" class="consultas" v-on:click="makeActive('consultas')">usuario</a></li>

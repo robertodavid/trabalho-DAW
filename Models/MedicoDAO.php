@@ -52,8 +52,6 @@ class MedicoDAO extends Model
             if($sql->rowCount() > 0){
                 $dados = $sql->fetchAll();
                 return $dados;
-            }else{
-                echo("Erro na consulta");
             }
 
         }catch (\PDOException $e){

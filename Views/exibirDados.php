@@ -36,8 +36,8 @@
                     if ($telefones['msg'] != ""){
                         ?>
                         <p>
-                            <label for="dt_nasc">Telefone:</label><br/>
-                            <input disabled type="text" name="telefone" value="<?php echo $telefones->msg;?>" placeholder="" class="btn">
+                            <label for="telefone">Telefone:</label><br/>
+                            <input disabled type="text" name="telefone" value="<?php echo $telefones['msg'];?>" placeholder="" class="btn">
                         </p>
                         <?php
                     }else{

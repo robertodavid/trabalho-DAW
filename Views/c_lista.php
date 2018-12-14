@@ -32,8 +32,8 @@
                         echo "inativo";
                         } ; ?></td>
                     <td>
-                        <a href="<?php echo BASE_URL."paciente/exibirPaciente/?id=".$convenio->id_conv; ?>"> <button type="button" name="ver" class="btn-sm btn-verde">Ver</button> </a>
-                        <a href="<?php echo BASE_URL."paciente/editPaciente/?id=".$convenio->id_conv; ?>"> <button type="button" name="ver" class="btn-sm btn-azul">Edit</button> </a>
+                        <a href="<?php echo BASE_URL."convenio/exibir/?id=".$convenio->id_conv; ?>"> <button type="button" name="ver" class="btn-sm btn-verde">Ver</button> </a>
+                        <a href="<?php echo BASE_URL."convenio/edit/?id=".$convenio->id_conv; ?>"> <button type="button" name="ver" class="btn-sm btn-azul">Edit</button> </a>
                     </td>
                 </tr>
 
